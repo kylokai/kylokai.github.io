@@ -52,21 +52,25 @@
             position: relative;
             text-align: center;
             z-index: 2;
+            padding: 20px;
         }
 
         .content img {
-            max-width: 300px;
+            max-width: 100%;
+            max-height: 250px;
             border-radius: 15px;
+            margin-bottom: 20px;
         }
 
         .content h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin: 15px 0;
         }
 
         .content p {
-            font-size: 1.2em;
+            font-size: 1em;
             margin: 20px;
+            line-height: 1.5;
         }
 
         .moving-button {
@@ -75,7 +79,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 10px 20px;
-            font-size: 1.2em;
+            font-size: 1em;
             color: white;
             background: #ff6f61;
             border: none;
@@ -89,6 +93,37 @@
             bottom: 10px;
             right: 10px;
             z-index: 3;
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 1.8em;
+            }
+
+            .content p {
+                font-size: 1em;
+                margin: 15px;
+            }
+
+            .moving-button {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content h1 {
+                font-size: 1.5em;
+            }
+
+            .content p {
+                font-size: 0.9em;
+            }
+
+            .moving-button {
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
         }
     </style>
     <script>
