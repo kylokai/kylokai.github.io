@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .background span {
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            animation: float 6s infinite;
+            mask-image: url('https://cdn-icons-png.flaticon.com/512/1077/1077035.png');
+            mask-size: cover;
+            -webkit-mask-image: url('https://cdn-icons-png.flaticon.com/512/1077/1077035.png');
+            -webkit-mask-size: cover;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(20vw);
+                opacity: 0;
+            }
+        }
+
+        .content {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .content img {
+            max-width: 300px;
+            border-radius: 15px;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin: 15px 0;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin: 20px;
+        }
+
+        .moving-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: top 0.3s, left 0.3s;
+        }
+
+        audio {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 3;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const button = document.querySelector(".moving-button");
+
+            button.addEventListener("mouseenter", () => {
+                // Get random positions within the viewport
+                const randomX = Math.random() * (window.innerWidth - button.offsetWidth);
+                const randomY = Math.random() * (window.innerHeight - button.offsetHeight);
+
+                // Update the button's position
+                button.style.left = `${randomX}px`;
+                button.style.top = `${randomY}px`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="background">
+        <span style="top: 90%; left: 10%;"></span>
+        <span style="top: 60%; left: 80%;"></span>
+        <span style="top: 40%; left: 20%;"></span>
+        <span style="top: 10%; left: 50%;"></span>
+    </div>
+
+    <div class="content">
+        <img src="https://i.pinimg.com/originals/65/96/f4/6596f4c5be300d66d850363da24715dd.gif" alt="Sorry GIF">
+        <h1>Dear my Love and Forever Sayang,</h1>
+        <p>I'm sorry for what i've done, i know it's hurt you so much, i can feel the pain, i'm sorry for always being such a bad person for you but the truth is i really can't live properly without you :( i selalu sia" kan peluang untuk kita fix, i'm so sorry bcs mental i serabut sangat n jadikan you mangsa semua ni, always make you makin serabut, i'm sorry bcs buatkan you lagi tak percaya kan i bcs the "hacking" things, i promise that i'm not gonna do it anymore, pinky promise🤙🏼🤍, i'm sorry bcs tak percaya kan you but srsly i need a comfort message from you, i also perlukan you sangat" to tell me if there's a thing that buatkan you dissapointed dengan i, i'm so sorry bcs buat you seteruk ni, but please sayang kita sama" fix relationship ni? i janji takkan buat benda" bodoh tu lagi, if i buat then you boleh expose semua perangai buruk i and go away from my life, srsly i need you sayang :( ik maybe sorry semua ni tak cukup untuk settlekan semua ni, even this website also tak cukup untuk you maafkan i, but please trust me and give me chance, kita bagi kerjasama to each other n yakinkan each other n give some comfort message to comfort us, ik kita boleh buat semua ni sayang n i promise that kita boleh fix this relationship, i'm sorry bcs i overthink too much n you jadi magsa again and again, i really do love you with full of my heart, i need you in my life, i miss you so much :( i'm sorry for everything, kita restart semua ni n be better bila 2025 dah masuk okay? but yea yk you can click the no button if you tak maafkan i (i dare you if you can), i love you forever till my last breath, my forever true love and my love of my live🤍 </p>
+        <button class="moving-button">No</button>
+    </div>
+
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
