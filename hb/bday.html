@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday Farah</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap');
@@ -21,6 +21,11 @@
       position: relative;
       color: white;
       background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
     }
 
     video.bg-video {
@@ -34,47 +39,23 @@
       filter: brightness(0.7);
     }
 
-    #loading {
-      position: fixed;
-      z-index: 1000;
-      background: linear-gradient(to bottom right, #ffc0cb, #ffb6c1);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: white;
-      font-family: 'Quicksand', sans-serif;
-      animation: fadeOut 1s ease 3s forwards;
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-
     h1 {
-      text-align: center;
-      margin-top: 5vh;
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(2rem, 6vw, 3rem);
       text-shadow: 2px 2px 6px #000000a0;
       font-weight: 800;
+      margin-top: 30px;
       padding: 0 10px;
-      position: relative;
-      z-index: 3;
     }
 
     .static-photo {
-      width: clamp(160px, 30vw, 240px);
-      height: clamp(160px, 30vw, 240px);
+      width: clamp(160px, 35vw, 240px);
+      height: clamp(160px, 35vw, 240px);
       border-radius: 25px;
       overflow: hidden;
-      margin: 6vh auto 4vh auto;
       border: 5px solid #fff;
       box-shadow: 0 0 25px #ffccff, 0 0 50px #ff99cc;
-      position: relative;
       z-index: 2;
+      margin: 30px 0;
     }
 
     .static-photo img {
@@ -85,55 +66,42 @@
 
     .floating-photo {
       position: absolute;
-      width: clamp(120px, 25vw, 200px);
-      height: clamp(120px, 25vw, 200px);
-      border-radius: 25px;
-      overflow: hidden;
-      border: 4px solid #fff;
-      opacity: 0.8;
-      animation: floatImage 5s ease-in-out infinite alternate;
-      box-shadow: 0 0 20px #ffc0cb, 0 0 30px #ff99cc;
+      width: clamp(100px, 22vw, 160px);
+      border-radius: 20px;
+      border: 4px solid white;
+      box-shadow: 0 0 20px #ff99cc;
       z-index: 1;
+      animation: floatImage 8s ease-in-out infinite;
+      transition: opacity 1s ease;
     }
 
     .floating-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 20px;
     }
 
     .floating-photo.left {
-      top: 60%;
+      top: 55%;
       left: 5%;
-      animation-name: floatImageLeft;
     }
 
     .floating-photo.right {
-      top: 60%;
+      top: 55%;
       right: 5%;
-      animation-name: floatImageRight;
     }
 
-    @keyframes floatImageLeft {
-      0% { transform: translate(0, 0); }
-      25% { transform: translate(-15px, -30px); }
-      50% { transform: translate(5px, -10px); }
-      75% { transform: translate(-10px, 15px); }
-      100% { transform: translate(0, 0); }
-    }
-
-    @keyframes floatImageRight {
-      0% { transform: translate(0, 0); }
-      25% { transform: translate(15px, -20px); }
-      50% { transform: translate(-10px, -10px); }
-      75% { transform: translate(5px, 25px); }
-      100% { transform: translate(0, 0); }
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-15px) translateX(5px); }
+      50% { transform: translateY(10px) translateX(-5px); }
+      75% { transform: translateY(-10px) translateX(8px); }
     }
 
     .message {
       position: absolute;
-      bottom: 0;
-      font-size: clamp(16px, 2vw, 26px);
+      font-size: clamp(16px, 2vw, 24px);
       font-weight: 700;
       color: #fff;
       text-shadow: 2px 2px 5px #00000066;
@@ -156,22 +124,6 @@
       filter: drop-shadow(0 0 2px white);
     }
 
-    .heart {
-      position: fixed;
-      bottom: 0;
-      font-size: 20px;
-      animation: rise 5s linear infinite;
-      color: #ff7fa8;
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
-    }
-
-    /* Button and Message Section */
     #showMessageBtn {
       background: #ff99cc;
       border: none;
@@ -185,6 +137,7 @@
       transition: transform 0.3s ease;
       z-index: 4;
       position: relative;
+      margin-bottom: 20px;
     }
 
     #kaiMessage {
@@ -193,7 +146,7 @@
       transition: all 0.6s ease;
       text-align: center;
       max-width: 600px;
-      margin: 30px auto;
+      margin: 0 auto;
       font-size: 1.2rem;
       line-height: 1.6;
       background: rgba(255, 255, 255, 0.1);
@@ -203,12 +156,12 @@
       color: white;
       font-weight: 500;
       font-family: 'Quicksand', sans-serif;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-
-  <div id="loading">🎀 Happy Birthday Farah 🎀</div>
 
   <video class="bg-video" autoplay muted loop>
     <source src="farah-background.mp4" type="video/mp4">
@@ -221,12 +174,8 @@
     <img src="farah1.jpg" alt="Farah Main">
   </div>
 
-  <!-- Button -->
-  <div style="text-align: center; margin-bottom: 20px;">
-    <button id="showMessageBtn">💌 Click for a Message from Kai 💌</button>
-  </div>
+  <button id="showMessageBtn">💌 Click for a Message from Kai 💌</button>
 
-  <!-- Message -->
   <div id="kaiMessage">
     Farahh, thank you for being the sunshine in my life 🌸<br>
     I’m so lucky to know someone as amazing and lovely as you.<br>
@@ -235,18 +184,37 @@
     Ramai sayang kamu termasuk Kai 🥹💕
   </div>
 
-  <!-- Floating Back Photos -->
-  <div class="floating-photo left">
-    <img src="farah2.jpg" alt="Farah Side 1">
+  <div class="floating-photo left" id="photoLeft">
+    <img src="farah2.jpg" alt="Floating 1">
   </div>
-  <div class="floating-photo right">
-    <img src="farah3.jpg" alt="Farah Side 2">
+  <div class="floating-photo right" id="photoRight">
+    <img src="farah3.jpg" alt="Floating 2">
   </div>
 
-  <!-- Confetti -->
+  <audio id="bg-music" preload="auto" loop>
+    <source src="birthday-music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script>
+    const music = document.getElementById('bg-music');
+    function playMusicOnce() {
+      music.play().catch(() => {});
+      window.removeEventListener('click', playMusicOnce);
+      window.removeEventListener('touchstart', playMusicOnce);
+    }
+    window.addEventListener('click', playMusicOnce);
+    window.addEventListener('touchstart', playMusicOnce);
+
+    confetti({
+      particleCount: 250,
+      spread: 360,
+      startVelocity: 40,
+      origin: { x: 0.5, y: 0.6 }
+    });
+
     const messages = [
       "happyyy belateddd bdayyy 💕",
       "eeee dahhh tuaaa 🤭",
@@ -259,60 +227,28 @@
       const balloon = document.createElement("div");
       balloon.classList.add("message", "love");
       balloon.textContent = messages[Math.floor(Math.random() * messages.length)];
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.top = Math.random() * 100 + "vh";
+      balloon.style.position = 'fixed';
       balloon.style.fontSize = (16 + Math.random() * 10) + "px";
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 7000);
     }
 
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.textContent = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (12 + Math.random() * 20) + "px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
-    }
+    setInterval(createBalloon, 300);
 
-    window.addEventListener('load', () => {
-      confetti({
-        particleCount: 500,
-        spread: 360,
-        startVelocity: 50,
-        ticks: 200,
-        origin: { x: 0.5, y: 1 }
-      });
-      setInterval(createBalloon, 300);
-      setInterval(createHeart, 600);
-    });
-
-    // Show Message
     const showMessageBtn = document.getElementById('showMessageBtn');
     const kaiMessage = document.getElementById('kaiMessage');
+    const photoLeft = document.getElementById('photoLeft');
+    const photoRight = document.getElementById('photoRight');
 
     showMessageBtn.addEventListener('click', () => {
       kaiMessage.style.opacity = '1';
       kaiMessage.style.transform = 'translateY(0)';
-      kaiMessage.scrollIntoView({ behavior: 'smooth' });
       showMessageBtn.style.display = 'none';
+      photoLeft.style.opacity = '0';
+      photoRight.style.opacity = '0';
     });
-  </script>
-
-  <!-- Music (tap to play) -->
-  <audio id="bg-music" loop>
-    <source src="birthday-music.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-
-  <script>
-    const music = document.getElementById('bg-music');
-    function playMusicOnce() {
-      music.play().catch(() => {});
-      window.removeEventListener('click', playMusicOnce);
-      window.removeEventListener('touchstart', playMusicOnce);
-    }
-    window.addEventListener('click', playMusicOnce);
-    window.addEventListener('touchstart', playMusicOnce);
   </script>
 
 </body>
