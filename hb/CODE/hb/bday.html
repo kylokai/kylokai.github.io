@@ -21,6 +21,7 @@
       color: white;
     }
 
+    /* Background Video */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -34,22 +35,21 @@
 
     h1 {
       text-align: center;
-      margin-top: 5vh;
-      font-size: clamp(1.5rem, 5vw, 3rem);
+      margin-top: 20px;
+      font-size: 2.8rem;
       text-shadow: 2px 2px 6px #000000a0;
-      padding: 0 10px;
     }
 
     .static-photo {
-      width: clamp(160px, 30vw, 240px);
-      height: clamp(160px, 30vw, 240px);
-      border-radius: 25px;
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
       overflow: hidden;
-      margin: 4vh auto;
-      border: 5px solid #fff;
-      box-shadow: 0 0 25px #ffccff, 0 0 50px #ff99cc;
-      position: relative;
+      margin: 20px auto;
+      border: 4px solid white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
       z-index: 1;
+      position: relative;
     }
 
     .static-photo img {
@@ -60,14 +60,13 @@
 
     .floating-photo {
       position: absolute;
-      width: clamp(120px, 25vw, 200px);
-      height: clamp(120px, 25vw, 200px);
-      border-radius: 25px;
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
       overflow: hidden;
-      border: 4px solid #fff;
-      opacity: 0.75;
-      animation: floatImage 5s ease-in-out infinite alternate;
-      box-shadow: 0 0 20px #ffc0cb, 0 0 30px #ff99cc;
+      border: 3px solid white;
+      opacity: 0.7;
+      animation: floatImage 6s ease-in-out infinite;
       z-index: 0;
     }
 
@@ -78,37 +77,25 @@
     }
 
     .floating-photo.left {
-      top: 20%;
+      top: 30%;
       left: 5%;
-      animation-name: floatImageLeft;
     }
 
     .floating-photo.right {
       top: 60%;
       right: 5%;
-      animation-name: floatImageRight;
     }
 
-    @keyframes floatImageLeft {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(-15px, -30px); }
-      50%  { transform: translate(5px, -10px); }
-      75%  { transform: translate(-10px, 15px); }
-      100% { transform: translate(0, 0); }
-    }
-
-    @keyframes floatImageRight {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(15px, -20px); }
-      50%  { transform: translate(-10px, -10px); }
-      75%  { transform: translate(5px, 25px); }
-      100% { transform: translate(0, 0); }
+    @keyframes floatImage {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
     }
 
     .message {
       position: absolute;
       bottom: 0;
-      font-size: clamp(16px, 2vw, 26px);
+      font-size: 24px;
       font-weight: bold;
       color: #fff;
       text-shadow: 2px 2px 5px #00000066;
@@ -128,6 +115,7 @@
       }
     }
 
+    /* Premium Love Style */
     .love {
       color: #ff99cc;
       font-size: 1.6rem;
@@ -137,7 +125,7 @@
 </head>
 <body>
 
-  <!-- Background Video -->
+  <!-- Video Background -->
   <video class="bg-video" autoplay muted loop>
     <source src="farah-background.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -159,13 +147,13 @@
     <img src="farah3.jpg" alt="Farah Side 2">
   </div>
 
-  <!-- Music -->
+  <!-- Background Music -->
   <audio autoplay loop>
     <source src="birthday-music.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Balloon Messages -->
+  <!-- Floating Messages -->
   <script>
     const messages = [
       "happyyy belateddd bdayyy 💕",
@@ -181,11 +169,12 @@
       balloon.textContent = messages[Math.floor(Math.random() * messages.length)];
       balloon.classList.add("love");
       balloon.style.left = Math.random() * 100 + "vw";
-      balloon.style.fontSize = (16 + Math.random() * 10) + "px";
+      balloon.style.fontSize = (20 + Math.random() * 15) + "px";
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 7000);
     }
 
+    // Start creating balloons immediately
     setInterval(createBalloon, 300);
   </script>
 
