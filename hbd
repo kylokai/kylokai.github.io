@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Belated Birthday Farah</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      position: relative;
+      color: white;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -10;
+      filter: brightness(0.7);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 5vh;
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      text-shadow: 2px 2px 6px #000000a0;
+      padding: 0 10px;
+    }
+
+    .static-photo {
+      width: clamp(160px, 30vw, 240px);
+      height: clamp(160px, 30vw, 240px);
+      border-radius: 25px;
+      overflow: hidden;
+      margin: 4vh auto;
+      border: 5px solid #fff;
+      box-shadow: 0 0 25px #ffccff, 0 0 50px #ff99cc;
+      position: relative;
+      z-index: 1;
+    }
+
+    .static-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-photo {
+      position: absolute;
+      width: clamp(120px, 25vw, 200px);
+      height: clamp(120px, 25vw, 200px);
+      border-radius: 25px;
+      overflow: hidden;
+      border: 4px solid #fff;
+      opacity: 0.75;
+      animation: floatImage 5s ease-in-out infinite alternate;
+      box-shadow: 0 0 20px #ffc0cb, 0 0 30px #ff99cc;
+      z-index: 0;
+    }
+
+    .floating-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-photo.left {
+      top: 20%;
+      left: 5%;
+      animation-name: floatImageLeft;
+    }
+
+    .floating-photo.right {
+      top: 60%;
+      right: 5%;
+      animation-name: floatImageRight;
+    }
+
+    @keyframes floatImageLeft {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(-15px, -30px); }
+      50%  { transform: translate(5px, -10px); }
+      75%  { transform: translate(-10px, 15px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes floatImageRight {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(15px, -20px); }
+      50%  { transform: translate(-10px, -10px); }
+      75%  { transform: translate(5px, 25px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    .message {
+      position: absolute;
+      bottom: 0;
+      font-size: clamp(16px, 2vw, 26px);
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 5px #00000066;
+      animation: floatUp 7s linear forwards;
+      font-family: 'JetBrains Mono', monospace;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .love {
+      color: #ff99cc;
+      font-size: 1.6rem;
+      filter: drop-shadow(0 0 2px white);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop>
+    <source src="farah-background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Heading -->
+  <h1>🎈 Happy Belated Birthday Farah 🎈</h1>
+
+  <!-- Static Main Photo -->
+  <div class="static-photo">
+    <img src="farah1.jpg" alt="Farah Main">
+  </div>
+
+  <!-- Floating Back Photos -->
+  <div class="floating-photo left">
+    <img src="farah2.jpg" alt="Farah Side 1">
+  </div>
+  <div class="floating-photo right">
+    <img src="farah3.jpg" alt="Farah Side 2">
+  </div>
+
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="birthday-music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Balloon Messages -->
+  <script>
+    const messages = [
+      "happyyy belateddd bdayyy 💕",
+      "eeee dahhh tuaaa 🤭",
+      "semogaa ituu iniii ituu ✨",
+      "ramaii sayangg kamuu 💫",
+      "💖💖💖", "💓💓", "💘💘", "💗💗"
+    ];
+
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("message");
+      balloon.textContent = messages[Math.floor(Math.random() * messages.length)];
+      balloon.classList.add("love");
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.fontSize = (16 + Math.random() * 10) + "px";
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 7000);
+    }
+
+    setInterval(createBalloon, 300);
+  </script>
+
+</body>
+</html>
