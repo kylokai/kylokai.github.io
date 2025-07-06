@@ -56,11 +56,13 @@
 
     h1 {
       text-align: center;
-      margin-top: 7vh;
+      margin-top: 5vh;
       font-size: clamp(2rem, 5vw, 3.5rem);
       text-shadow: 2px 2px 6px #000000a0;
       font-weight: 800;
       padding: 0 10px;
+      position: relative;
+      z-index: 3;
     }
 
     .static-photo {
@@ -68,7 +70,7 @@
       height: clamp(160px, 30vw, 240px);
       border-radius: 25px;
       overflow: hidden;
-      margin: 5vh auto 4vh auto;
+      margin: 6vh auto 4vh auto;
       border: 5px solid #fff;
       box-shadow: 0 0 25px #ffccff, 0 0 50px #ff99cc;
       position: relative;
@@ -88,7 +90,7 @@
       border-radius: 25px;
       overflow: hidden;
       border: 4px solid #fff;
-      opacity: 0.75;
+      opacity: 0.8;
       animation: floatImage 5s ease-in-out infinite alternate;
       box-shadow: 0 0 20px #ffc0cb, 0 0 30px #ff99cc;
       z-index: 1;
@@ -101,13 +103,13 @@
     }
 
     .floating-photo.left {
-      top: 32%;
+      top: 60%;
       left: 5%;
       animation-name: floatImageLeft;
     }
 
     .floating-photo.right {
-      top: 65%;
+      top: 60%;
       right: 5%;
       animation-name: floatImageRight;
     }
@@ -138,11 +140,14 @@
       animation: floatUp 7s linear forwards;
       pointer-events: none;
       font-family: 'Quicksand', sans-serif;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(1); opacity: 1; }
-      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+      0% { transform: translate(-50%, 100vh) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -120vh) scale(1.5); opacity: 0; }
     }
 
     .love {
@@ -165,28 +170,72 @@
       0% { transform: translateY(0) scale(1); opacity: 1; }
       100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
     }
+
+    /* Button and Message Section */
+    #showMessageBtn {
+      background: #ff99cc;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 4;
+      position: relative;
+    }
+
+    #kaiMessage {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+      text-align: center;
+      max-width: 600px;
+      margin: 30px auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff99cc;
+      color: white;
+      font-weight: 500;
+      font-family: 'Quicksand', sans-serif;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Loading Screen -->
   <div id="loading">🎀 Happy Birthday Farah 🎀</div>
 
-  <!-- Background Video -->
   <video class="bg-video" autoplay muted loop>
     <source src="farah-background.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-  <!-- Heading -->
   <h1>🎈 Happyy Birthdayy Farahh 🎈</h1>
 
-  <!-- Static Main Photo -->
   <div class="static-photo">
     <img src="farah1.jpg" alt="Farah Main">
   </div>
 
-  <!-- Floating Photos -->
+  <!-- Button -->
+  <div style="text-align: center; margin-bottom: 20px;">
+    <button id="showMessageBtn">💌 Click for a Message from Kai 💌</button>
+  </div>
+
+  <!-- Message -->
+  <div id="kaiMessage">
+    Farahh, thank you for being the sunshine in my life 🌸<br>
+    I’m so lucky to know someone as amazing and lovely as you.<br>
+    Happy belated birthday again, and may your days be filled with joy,<br>
+    laughter, and all the things that make your heart smile.<br>
+    Ramai sayang kamu termasuk Kai 🥹💕
+  </div>
+
+  <!-- Floating Back Photos -->
   <div class="floating-photo left">
     <img src="farah2.jpg" alt="Farah Side 1">
   </div>
@@ -194,16 +243,9 @@
     <img src="farah3.jpg" alt="Farah Side 2">
   </div>
 
-  <!-- Music -->
-  <audio autoplay loop>
-    <source src="birthday-music.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Confetti JS Library -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-  <!-- Floating Texts + Confetti + Hearts -->
   <script>
     const messages = [
       "happyyy belateddd bdayyy 💕",
@@ -217,7 +259,6 @@
       const balloon = document.createElement("div");
       balloon.classList.add("message", "love");
       balloon.textContent = messages[Math.floor(Math.random() * messages.length)];
-      balloon.style.left = Math.random() * 100 + "vw";
       balloon.style.fontSize = (16 + Math.random() * 10) + "px";
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 7000);
@@ -234,17 +275,44 @@
     }
 
     window.addEventListener('load', () => {
-      // Confetti
       confetti({
-        particleCount: 200,
-        spread: 160,
-        origin: { y: 0.6 }
+        particleCount: 500,
+        spread: 360,
+        startVelocity: 50,
+        ticks: 200,
+        origin: { x: 0.5, y: 1 }
       });
-
-      // Balloons + hearts
       setInterval(createBalloon, 300);
       setInterval(createHeart, 600);
     });
+
+    // Show Message
+    const showMessageBtn = document.getElementById('showMessageBtn');
+    const kaiMessage = document.getElementById('kaiMessage');
+
+    showMessageBtn.addEventListener('click', () => {
+      kaiMessage.style.opacity = '1';
+      kaiMessage.style.transform = 'translateY(0)';
+      kaiMessage.scrollIntoView({ behavior: 'smooth' });
+      showMessageBtn.style.display = 'none';
+    });
+  </script>
+
+  <!-- Music (tap to play) -->
+  <audio id="bg-music" loop>
+    <source src="birthday-music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    function playMusicOnce() {
+      music.play().catch(() => {});
+      window.removeEventListener('click', playMusicOnce);
+      window.removeEventListener('touchstart', playMusicOnce);
+    }
+    window.addEventListener('click', playMusicOnce);
+    window.addEventListener('touchstart', playMusicOnce);
   </script>
 
 </body>
