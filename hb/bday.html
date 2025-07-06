@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Belated Birthday Farah</title>
+  <title>Happy Birthday Farah</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap');
 
     * {
       margin: 0;
@@ -17,9 +17,10 @@
       height: 100vh;
       overflow: hidden;
       font-family: 'Quicksand', sans-serif;
-      font-weight: 700;
+      font-weight: 800;
       position: relative;
       color: white;
+      background: #000;
     }
 
     video.bg-video {
@@ -33,11 +34,32 @@
       filter: brightness(0.7);
     }
 
+    #loading {
+      position: fixed;
+      z-index: 1000;
+      background: linear-gradient(to bottom right, #ffc0cb, #ffb6c1);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+      animation: fadeOut 1s ease 3s forwards;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
     h1 {
       text-align: center;
-      margin-top: 5vh;
-      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-top: 7vh;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       text-shadow: 2px 2px 6px #000000a0;
+      font-weight: 800;
       padding: 0 10px;
     }
 
@@ -46,11 +68,11 @@
       height: clamp(160px, 30vw, 240px);
       border-radius: 25px;
       overflow: hidden;
-      margin: 4vh auto;
+      margin: 5vh auto 4vh auto;
       border: 5px solid #fff;
       box-shadow: 0 0 25px #ffccff, 0 0 50px #ff99cc;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .static-photo img {
@@ -69,7 +91,7 @@
       opacity: 0.75;
       animation: floatImage 5s ease-in-out infinite alternate;
       box-shadow: 0 0 20px #ffc0cb, 0 0 30px #ff99cc;
-      z-index: 0;
+      z-index: 1;
     }
 
     .floating-photo img {
@@ -79,30 +101,30 @@
     }
 
     .floating-photo.left {
-      top: 20%;
+      top: 32%;
       left: 5%;
       animation-name: floatImageLeft;
     }
 
     .floating-photo.right {
-      top: 60%;
+      top: 65%;
       right: 5%;
       animation-name: floatImageRight;
     }
 
     @keyframes floatImageLeft {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(-15px, -30px); }
-      50%  { transform: translate(5px, -10px); }
-      75%  { transform: translate(-10px, 15px); }
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-15px, -30px); }
+      50% { transform: translate(5px, -10px); }
+      75% { transform: translate(-10px, 15px); }
       100% { transform: translate(0, 0); }
     }
 
     @keyframes floatImageRight {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(15px, -20px); }
-      50%  { transform: translate(-10px, -10px); }
-      75%  { transform: translate(5px, 25px); }
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(15px, -20px); }
+      50% { transform: translate(-10px, -10px); }
+      75% { transform: translate(5px, 25px); }
       100% { transform: translate(0, 0); }
     }
 
@@ -110,7 +132,7 @@
       position: absolute;
       bottom: 0;
       font-size: clamp(16px, 2vw, 26px);
-      font-weight: bold;
+      font-weight: 700;
       color: #fff;
       text-shadow: 2px 2px 5px #00000066;
       animation: floatUp 7s linear forwards;
@@ -119,14 +141,8 @@
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) scale(1.5);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
     }
 
     .love {
@@ -134,9 +150,27 @@
       font-size: 1.6rem;
       filter: drop-shadow(0 0 2px white);
     }
+
+    .heart {
+      position: fixed;
+      bottom: 0;
+      font-size: 20px;
+      animation: rise 5s linear infinite;
+      color: #ff7fa8;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Loading Screen -->
+  <div id="loading">🎀 Happy Birthday Farah 🎀</div>
 
   <!-- Background Video -->
   <video class="bg-video" autoplay muted loop>
@@ -145,14 +179,14 @@
   </video>
 
   <!-- Heading -->
-  <h1>🎈 Happy Belated Birthday Farah 🎈</h1>
+  <h1>🎈 Happyy Birthdayy Farahh 🎈</h1>
 
   <!-- Static Main Photo -->
   <div class="static-photo">
     <img src="farah1.jpg" alt="Farah Main">
   </div>
 
-  <!-- Floating Back Photos -->
+  <!-- Floating Photos -->
   <div class="floating-photo left">
     <img src="farah2.jpg" alt="Farah Side 1">
   </div>
@@ -166,7 +200,10 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Floating Balloon Messages -->
+  <!-- Confetti JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Floating Texts + Confetti + Hearts -->
   <script>
     const messages = [
       "happyyy belateddd bdayyy 💕",
@@ -178,16 +215,36 @@
 
     function createBalloon() {
       const balloon = document.createElement("div");
-      balloon.classList.add("message");
+      balloon.classList.add("message", "love");
       balloon.textContent = messages[Math.floor(Math.random() * messages.length)];
-      balloon.classList.add("love");
       balloon.style.left = Math.random() * 100 + "vw";
       balloon.style.fontSize = (16 + Math.random() * 10) + "px";
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 7000);
     }
 
-    setInterval(createBalloon, 300);
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (12 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    window.addEventListener('load', () => {
+      // Confetti
+      confetti({
+        particleCount: 200,
+        spread: 160,
+        origin: { y: 0.6 }
+      });
+
+      // Balloons + hearts
+      setInterval(createBalloon, 300);
+      setInterval(createHeart, 600);
+    });
   </script>
 
 </body>
