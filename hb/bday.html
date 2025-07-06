@@ -161,17 +161,17 @@
     }
   </style>
 </head>
-<body>
+<body >
 
   <video class="bg-video" autoplay muted loop>
-    <source src="farah-background.mp4" type="video/mp4">
+    <source src="https://kylokai.github.io/hb/farah-background.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
   <h1>🎈 Happyy Birthdayy Farahh 🎈</h1>
 
   <div class="static-photo">
-    <img src="farah1.jpg" alt="Farah Main">
+    <img src="https://kylokai.github.io/hb/farah1.jpg" alt="Farah Main">
   </div>
 
   <button id="showMessageBtn">💌 click laa adaa wishh ni drpd paan 💌</button>
@@ -188,21 +188,21 @@
   </div>
 
   <div class="floating-photo left" id="photoLeft">
-    <img src="farah2.jpg" alt="Floating 1">
+    <img src="https://kylokai.github.io/hb/farah2.jpg" alt="Floating 1">
   </div>
   <div class="floating-photo right" id="photoRight">
-    <img src="farah3.jpg" alt="Floating 2">
+    <img src="https://kylokai.github.io/hb/farah3.jpg" alt="Floating 2">
   </div>
 
   <audio id="bg-music" preload="auto" loop>
-    <source src="birthday-music.mp3" type="audio/mp3">
+    <source src="https://kylokai.github.io/hb/birthday-music.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script>
-    const music = document.getElementById('bg-music');
+/*     const music = document.getElementById('bg-music');
     function playMusicOnce() {
       music.play().catch(() => {});
       window.removeEventListener('click', playMusicOnce);
@@ -210,6 +210,13 @@
     }
     window.addEventListener('click', playMusicOnce);
     window.addEventListener('touchstart', playMusicOnce);
+ */
+    document.body.addEventListener('click', () => {
+    const music = document.getElementById('bg-music');
+        if (music.paused) {
+            music.play().catch(() => {});
+        }
+    });
 
     confetti({
       particleCount: 250,
