@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>It's Alyaa Batrisyiaa Birthdayy❤️❤️</title>
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+    font-family: 'Comic Sans MS', cursive;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    position:relative;
+    color:white;
+    overflow:hidden;
+}
+
+/* VIDEO BACKGROUND */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    backdrop-filter: blur(6px) brightness(0.55);
+    z-index:-1;
+}
+
+.content {
+    text-align:center;
+    max-width:600px;
+    width:100%;
+    padding:20px;
+    border-radius:20px;
+    position:relative;
+}
+
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+h1 { animation:blink 1.5s infinite; font-size:11vw; text-shadow:2px 2px 15px hotpink; margin-bottom:10px; margin-top:-40px; }
+@media(min-width:600px){ h1{font-size:55px; margin-top:-20px;} }
+p.subtitle{ font-size:3.8vw; margin-bottom:15px; text-shadow:1px 1px 5px black; }
+@media(min-width:600px){ p.subtitle{font-size:16px;} }
+
+button {
+    padding:12px 20px;
+    font-size:5vw;
+    background-color:hotpink;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    animation: blink 2s infinite;
+    box-shadow:0 0 12px white;
+}
+button:hover{ transform:scale(1.1); }
+@media(min-width:600px){ button{ font-size:18px; } }
+
+/* === ENVELOPE & CARD === */
+.envelope {
+    width:250px; height:150px;
+    background:#fff;
+    border:2px solid hotpink;
+    border-radius:12px;
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%) scale(0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+    opacity:0;
+    transition: all 1s ease;
+    z-index:5;
+    perspective:1000px;
+}
+
+.envelope.open {
+    transform:translate(-50%, -50%) scale(1) rotateX(180deg);
+    opacity:1;
+}
+
+.card {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%) scale(0);
+    background:hotpink;
+    color:white;
+    width:280px;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 20px white;
+    transition: transform 1s ease, opacity 1s ease;
+    opacity:0;
+    z-index:6;
+}
+
+.card.show {
+    transform:translate(-50%, -50%) scale(1);
+    opacity:1;
+}
+
+.typing {
+    border-right: 2px solid white;
+    white-space: pre-wrap; /* untuk newline ikut message */
+    overflow: hidden;
+    font-size:16px;
+    line-height:1.5;
+}
+</style>
+</head>
+<body>
+
+<video id="bg-video" autoplay loop muted>
+    <source src="her.mp4" type="video/mp4">
+</video>
+
+<audio autoplay loop>
+    <source src="birthday.mp3" type="audio/mp3">
+</audio>
+
+<div class="overlay"></div>
+
+<div class="content">
+    <h1>Hii Batt and Happyy Belated Birthdayyy!!!</h1>
+    <p class="subtitle">✨ This website was created with a sincere and lovely heart ✨</p>
+
+    <button id="main-btn">Openn it batt and hopee you enjoyy ittt <33</button>
+
+    <p style="margin-top:30px;">Enjoyy yourr speciall dayy batt <33</p>
+</div>
+
+<!-- Envelope & Card -->
+<div class="envelope" id="envelope">💌</div>
+<div class="card" id="card"><span id="wish" class="typing"></span></div>
+
+<script>
+const btn = document.getElementById('main-btn');
+const envelope = document.getElementById('envelope');
+const card = document.getElementById('card');
+const wish = document.getElementById('wish');
+
+const message = "🎉 Happy birthdayyy againn 🎉\nMay your day be full of love, joy and hope your day be as beautiful as you are❤️❤️❤️";
+
+btn.addEventListener('click', () => {
+    // Fade in envelope
+    envelope.style.opacity = 1;
+    envelope.style.transform = 'translate(-50%, -50%) scale(1)';
+
+    // Buka envelope & tunjuk card
+    setTimeout(() => {
+        envelope.classList.add('open');
+        card.classList.add('show');
+
+        // Typing effect
+        let i = 0;
+        function typeWriter() {
+            if(i < message.length){
+                wish.innerHTML += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50); // speed typing
+            }
+        }
+        typeWriter();
+    }, 1000); // delay 1s selepas envelope muncul
+});
+</script>
+
+</body>
+</html>
