@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>It's yayangggg birthdayy 💙💙</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+/* ============================= */
+/* VIDEO BACKGROUND */
+/* ============================= */
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    /* Soft blue overlay */
+    backdrop-filter: blur(6px) brightness(0.55);
+
+    background: rgba(100, 180, 255, 0.12);
+
+    z-index: -1;
+}
+
+/* ============================= */
+/* CONTENT */
+/* ============================= */
+
+.content {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+h1 {
+    animation: blink 1.5s infinite;
+
+    /* Responsive font size */
+    font-size: clamp(24px, 4vw, 48px);
+
+    /* Baby blue glow */
+    text-shadow:
+        2px 2px 15px #8ed8ff,
+        0 0 25px #bde9ff;
+
+    margin-bottom: 10px;
+    margin-top: -20px;
+
+    /* Give the heading more room */
+    width: 100%;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    line-height: 1.25;
+}
+
+/* Desktop / wider screens */
+@media (min-width: 768px) {
+    h1 {
+        white-space: nowrap;
+        font-size: clamp(28px, 3.5vw, 48px);
+    }
+}
+
+/* Smaller phones */
+@media (max-width: 767px) {
+    h1 {
+        font-size: clamp(24px, 7vw, 36px);
+        line-height: 1.2;
+    }
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+p.subtitle {
+    font-size: clamp(14px, 3.5vw, 18px);
+    margin-bottom: 15px;
+
+    text-shadow:
+        1px 1px 5px black,
+        0 0 10px #8ed8ff;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+button {
+    padding: 12px 20px;
+
+    font-size: clamp(14px, 4vw, 22px);
+
+    /* Soft baby blue */
+    background: #82d4ff;
+
+    color: white;
+
+    border: 2px solid #c9f0ff;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    animation: blink 2s infinite;
+
+    box-shadow:
+        0 0 12px #bde9ff,
+        0 0 25px rgba(130, 212, 255, 0.8);
+
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: scale(1.1);
+
+    background: #a5e2ff;
+
+    box-shadow:
+        0 0 20px #d9f5ff,
+        0 0 35px rgba(130, 212, 255, 0.9);
+}
+
+/* ============================= */
+/* ENVELOPE */
+/* ============================= */
+
+.envelope {
+    width: 260px;
+    height: 160px;
+
+    background: #ffffff;
+
+    border: 3px solid #82d4ff;
+
+    border-radius: 12px;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(0.1);
+
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.5rem;
+
+    transition: 0.7s ease;
+
+    box-shadow:
+        0 0 20px #9bddff,
+        0 0 40px rgba(130, 212, 255, 0.7);
+
+    z-index: 5;
+}
+
+.envelope.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.25);
+}
+
+.envelope.pop-finish {
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+.envelope.open {
+    transform:
+        translate(-50%, -50%)
+        scale(1)
+        rotateX(180deg);
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.card {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.2);
+
+    /* Soft blue card */
+    background: linear-gradient(
+        135deg,
+        #82d4ff,
+        #a9e3ff
+    );
+
+    color: white;
+
+    width: 90%;
+    max-width: 480px;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 30px #d8f5ff,
+        0 0 60px rgba(130, 212, 255, 0.7);
+
+    transition: 1s ease;
+
+    z-index: 7;
+}
+
+.card.show {
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    opacity: 1;
+}
+
+.typing {
+    border-right: 2px solid white;
+
+    white-space: pre-wrap;
+
+    overflow: hidden;
+
+    font-size: clamp(15px, 3.5vw, 20px);
+
+    line-height: 1.7;
+
+    text-shadow:
+        1px 1px 3px rgba(0, 80, 130, 0.5);
+}
+
+/* ============================= */
+/* FLOATING TEXT */
+/* ============================= */
+
+.float {
+    position: absolute;
+
+    font-size: clamp(14px, 3.5vw, 20px);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        floatRandom 4.5s linear forwards,
+        textPop 0.5s ease;
+
+    text-shadow:
+        0 0 8px #8ed8ff,
+        1px 1px 4px rgba(0, 60, 100, 0.8);
+}
+
+/* Random floating movement */
+
+@keyframes floatRandom {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(var(--xMove), var(--yMove))
+            scale(1.3);
+    }
+}
+
+/* Small pop */
+
+@keyframes textPop {
+
+    0% {
+        transform: scale(0.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+.float-img {
+
+    position: absolute;
+
+    width: 105px;
+
+    border-radius: 15px;
+
+    /* Baby blue border */
+
+    border: 3px solid #a9e8ff;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        floatRandomImg 5s linear forwards,
+        imgGlow 1.5s ease-in-out infinite alternate;
+
+    box-shadow:
+        0 0 10px #8ed8ff;
+}
+
+@keyframes floatRandomImg {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            scale(1)
+            rotate(0deg);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(var(--xMove), var(--yMove))
+            scale(1.25)
+            rotate(var(--rotation));
+    }
+}
+
+@keyframes imgGlow {
+
+    0% {
+        box-shadow:
+            0 0 5px #8ed8ff;
+    }
+
+    100% {
+        box-shadow:
+            0 0 20px #e5f8ff;
+    }
+}
+
+/* ============================= */
+/* GLITTER POP */
+/* ============================= */
+
+.glitter {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation:
+        glitter 1s linear forwards;
+
+    box-shadow:
+        0 0 8px white;
+}
+
+@keyframes glitter {
+
+    0% {
+
+        transform:
+            scale(0.3);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(2.5)
+            translateY(-60px);
+
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ============================= -->
+<!-- BACKGROUND VIDEO -->
+<!-- ============================= -->
+
+<video id="bg-video" autoplay loop muted>
+
+    <source src="her.mp4" type="video/mp4">
+
+</video>
+
+<div class="overlay"></div>
+
+
+<!-- ============================= -->
+<!-- AUDIO -->
+<!-- ============================= -->
+
+<audio id="bg-music">
+
+    <source src="birthday.mp3" type="audio/mp3">
+
+</audio>
+
+
+<!-- ============================= -->
+<!-- MAIN CONTENT -->
+<!-- ============================= -->
+
+<div class="content">
+
+    <h1>
+        Hii yayangggg and happyy belated birthdayyy!!! 💙
+    </h1>
+
+    <p class="subtitle">
+        ✨ This website was created with a sincere and lovely heart ✨
+    </p>
+
+    <button id="main-btn">
+        Openn it sayangg and hopee you enjoyy ittt &lt;33 💙
+    </button>
+
+    <p style="margin-top:30px;">
+        Enjoyy yourr speciall dayy sayanggg &lt;33 🩵
+    </p>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- ENVELOPE + CARD -->
+<!-- ============================= -->
+
+<div class="envelope" id="envelope">
+    💌
+</div>
+
+<div class="card" id="card">
+
+    <span id="wish" class="typing"></span>
+
+</div>
+
+
+<script>
+
+const btn =
+    document.getElementById("main-btn");
+
+const envelope =
+    document.getElementById("envelope");
+
+const card =
+    document.getElementById("card");
+
+const wish =
+    document.getElementById("wish");
+
+const music =
+    document.getElementById("bg-music");
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+/*
+   5 different pictures.
+
+   Make sure these files are in the
+   SAME folder as this HTML file.
+*/
+
+const floatingImages = [
+
+    "batt.jpg",
+    "batt2.jpg",
+    "batt3.jpg",
+    "batt4.jpg",
+    "batt5.jpg"
+
+];
+
+
+/* ============================= */
+/* BIRTHDAY MESSAGE */
+/* ============================= */
+
+const message =
+
+"🎉 Happy birthdayyy againn 🎉\n" +
+
+"May your day be full of love, joyy and all the soft things that make you smilee.\n" +
+
+"Hope your day is as beautifull as you aree sayanggg!! 💙💙💙\n" +
+
+"I hope today brings you all the little things that make your heart feel light bc you deserve a really lovely dayy <3\n" +
+
+"I also hope your day turns out unexpectedly nicee, just like how your presence feels sometimes 🌸";
+
+
+/* ============================= */
+/* BUTTON CLICK */
+/* ============================= */
+
+btn.addEventListener("click", () => {
+
+
+    /* Music */
+
+    music.volume = 0.9;
+
+    music.play().catch(() => {});
+
+
+    /* Disable button */
+
+    btn.disabled = true;
+
+    btn.style.opacity = "0.4";
+
+
+    /* ============================= */
+    /* GLITTER POP */
+    /* ============================= */
+
+    for (let i = 0; i < 40; i++) {
+
+        let g =
+            document.createElement("div");
+
+        g.classList.add("glitter");
+
+
+        g.style.left =
+            (
+                window.innerWidth / 2 +
+                (Math.random() * 240 - 120)
+            ) + "px";
+
+
+        g.style.top =
+            (
+                window.innerHeight / 2 +
+                (Math.random() * 120 - 60)
+            ) + "px";
+
+
+        /*
+           Soft blue / cyan / white glitter
+        */
+
+        const glitterColors = [
+
+            "#ffffff",
+            "#dff7ff",
+            "#b8ecff",
+            "#8edcff",
+            "#c8f2ff"
+
+        ];
+
+        g.style.background =
+            glitterColors[
+                Math.floor(
+                    Math.random() *
+                    glitterColors.length
+                )
+            ];
+
+
+        document.body.appendChild(g);
+
+
+        setTimeout(
+            () => g.remove(),
+            1000
+        );
+
+    }
+
+
+    /* ============================= */
+    /* ENVELOPE ANIMATION */
+    /* ============================= */
+
+    envelope.classList.add("show");
+
+
+    setTimeout(
+        () =>
+            envelope.classList.add(
+                "pop-finish"
+            ),
+        300
+    );
+
+
+    setTimeout(() => {
+
+        envelope.classList.add("open");
+
+        card.classList.add("show");
+
+        typeWriter();
+
+
+        /*
+           Floating text every 1.1 seconds
+           instead of 0.9 to reduce clutter
+        */
+
+        setInterval(
+            createFloatingText,
+            1100
+        );
+
+
+        /*
+           Floating image every 2 seconds
+           so the screen doesn't become messy
+        */
+
+        setInterval(
+            createFloatingImage,
+            2000
+        );
+
+    }, 900);
+
+});
+
+
+/* ============================= */
+/* TYPEWRITER */
+/* ============================= */
+
+let i = 0;
+
+function typeWriter() {
+
+    if (i < message.length) {
+
+        wish.innerHTML +=
+            message.charAt(i);
+
+        i++;
+
+        setTimeout(
+            typeWriter,
+            45
+        );
+
+    }
+
+}
+
+
+/* ============================= */
+/* FLOATING TEXT */
+/* ============================= */
+
+function createFloatingText() {
+
+
+    const words = [
+
+        "semogaa dipanjangkan umurr 💙",
+
+        "🎉🎉🎉🎉",
+
+        "semogaa sem ni dekann ✨",
+
+        "jangann insecuree sangatt, kamu cantikk sangatt dahh batt 💙",
+
+        "🩵🩵🩵🩵",
+
+        "jangann sedih2, galauu2 🌸",
+
+        "you deserve all the happinesss 💙",
+
+        "stay prettyy sayanggg 🥹🩵"
+
+    ];
+
+
+    const el =
+        document.createElement("div");
+
+
+    el.classList.add("float");
+
+
+    el.innerText =
+        words[
+            Math.floor(
+                Math.random() *
+                words.length
+            )
+        ];
+
+
+    /*
+       Random horizontal starting point
+    */
+
+    el.style.left =
+        Math.random() * 80 + "%";
+
+
+    el.style.bottom =
+        "-30px";
+
+
+    /*
+       Random movement
+    */
+
+    el.style.setProperty(
+
+        "--xMove",
+
+        (
+            Math.random() * 300 -
+            150
+        ) + "px"
+
+    );
+
+
+    el.style.setProperty(
+
+        "--yMove",
+
+        (
+            -300 -
+            Math.random() * 200
+        ) + "px"
+
+    );
+
+
+    document.body.appendChild(el);
+
+
+    setTimeout(
+        () => el.remove(),
+        5000
+    );
+
+}
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+function createFloatingImage() {
+
+
+    const img =
+        document.createElement("img");
+
+
+    /*
+       Randomly choose one of
+       the 5 pictures
+    */
+
+    img.src =
+        floatingImages[
+            Math.floor(
+                Math.random() *
+                floatingImages.length
+            )
+        ];
+
+
+    img.classList.add(
+        "float-img"
+    );
+
+
+    /*
+       Random starting position
+    */
+
+    img.style.left =
+        Math.random() * 80 + "%";
+
+
+    img.style.bottom =
+        "-60px";
+
+
+    /*
+       Random movement
+    */
+
+    img.style.setProperty(
+
+        "--xMove",
+
+        (
+            Math.random() * 300 -
+            150
+        ) + "px"
+
+    );
+
+
+    img.style.setProperty(
+
+        "--yMove",
+
+        (
+            -350 -
+            Math.random() * 220
+        ) + "px"
+
+    );
+
+
+    /*
+       Random rotation
+       for a more natural effect
+    */
+
+    img.style.setProperty(
+
+        "--rotation",
+
+        (
+            Math.random() * 30 -
+            15
+        ) + "deg"
+
+    );
+
+
+    document.body.appendChild(img);
+
+
+    setTimeout(
+        () => img.remove(),
+        5500
+    );
+
+}
+
+</script>
+
+</body>
+</html>
