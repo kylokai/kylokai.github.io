@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Amatic SC Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+<title>It's yayangggg birthdayy 💙💙</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    /* AMATIC SC */
+    font-family: 'Amatic SC', cursive;
+
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    color: white;
+
+    position: relative;
+}
+
+/* ============================= */
+/* VIDEO BACKGROUND */
+/* ============================= */
+
+#bg-video {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -2;
+}
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    /* Soft blue overlay */
+
+    backdrop-filter:
+        blur(6px)
+        brightness(0.55);
+
+    background:
+        rgba(100, 180, 255, 0.12);
+
+    z-index: -1;
+}
+
+/* ============================= */
+/* CONTENT */
+/* ============================= */
+
+.content {
+
+    text-align: center;
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    padding: 20px;
+}
+
+/* ============================= */
+/* MAIN TITLE */
+/* ============================= */
+
+h1 {
+
+    animation: blink 1.5s infinite;
+
+    font-family: 'Amatic SC', cursive;
+
+    font-weight: 700;
+
+    /*
+       Responsive font
+       Bigger because Amatic SC is narrow
+    */
+
+    font-size:
+        clamp(34px, 5vw, 62px);
+
+    /*
+       Baby blue glow
+    */
+
+    text-shadow:
+
+        2px 2px 15px #8ed8ff,
+
+        0 0 25px #bde9ff,
+
+        0 0 40px rgba(142, 216, 255, 0.8);
+
+    margin-bottom: 12px;
+
+    margin-top: -20px;
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    line-height: 1.05;
+
+    letter-spacing: 1px;
+}
+
+/* Desktop */
+
+@media (min-width: 768px) {
+
+    h1 {
+
+        white-space: nowrap;
+
+        font-size:
+            clamp(38px, 4.5vw, 62px);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+    h1 {
+
+        white-space: normal;
+
+        font-size:
+            clamp(34px, 9vw, 48px);
+
+        line-height: 1.05;
+
+        padding: 0 5px;
+    }
+}
+
+/* ============================= */
+/* BLINK */
+/* ============================= */
+
+@keyframes blink {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* ============================= */
+/* SUBTITLE */
+/* ============================= */
+
+p.subtitle {
+
+    font-family:
+        'Amatic SC',
+        cursive;
+
+    font-weight: 700;
+
+    font-size:
+        clamp(20px, 3vw, 28px);
+
+    margin-bottom: 18px;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+
+        1px 1px 5px black,
+
+        0 0 10px #8ed8ff,
+
+        0 0 15px rgba(142, 216, 255, 0.7);
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+button {
+
+    padding:
+        12px 24px;
+
+    font-family:
+        'Amatic SC',
+        cursive;
+
+    font-weight: 700;
+
+    font-size:
+        clamp(20px, 3.5vw, 30px);
+
+    letter-spacing: 0.5px;
+
+    /* Soft baby blue */
+
+    background:
+        #82d4ff;
+
+    color:
+        white;
+
+    border:
+        2px solid #c9f0ff;
+
+    border-radius:
+        12px;
+
+    cursor:
+        pointer;
+
+    animation:
+        blink 2s infinite;
+
+    box-shadow:
+
+        0 0 12px #bde9ff,
+
+        0 0 25px
+        rgba(130, 212, 255, 0.8);
+
+    transition:
+        0.25s;
+}
+
+button:hover {
+
+    transform:
+        scale(1.08);
+
+    background:
+        #a5e2ff;
+
+    box-shadow:
+
+        0 0 20px #d9f5ff,
+
+        0 0 35px
+        rgba(130, 212, 255, 0.9);
+}
+
+/* ============================= */
+/* BOTTOM TEXT */
+/* ============================= */
+
+.content > p:last-child {
+
+    font-family:
+        'Amatic SC',
+        cursive;
+
+    font-weight: 700;
+
+    font-size:
+        clamp(19px, 3vw, 26px);
+
+    letter-spacing:
+        0.5px;
+
+    text-shadow:
+        0 0 8px #8ed8ff;
+}
+
+/* ============================= */
+/* ENVELOPE */
+/* ============================= */
+
+.envelope {
+
+    width:
+        260px;
+
+    height:
+        160px;
+
+    background:
+        #ffffff;
+
+    border:
+        3px solid #82d4ff;
+
+    border-radius:
+        12px;
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.1);
+
+    opacity:
+        0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-size:
+        2.5rem;
+
+    transition:
+        0.7s ease;
+
+    box-shadow:
+
+        0 0 20px #9bddff,
+
+        0 0 40px
+        rgba(130, 212, 255, 0.7);
+
+    z-index:
+        5;
+}
+
+.envelope.show {
+
+    opacity:
+        1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.25);
+}
+
+.envelope.pop-finish {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+.envelope.open {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1)
+        rotateX(180deg);
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.card {
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.2);
+
+    /*
+       Soft blue gradient
+    */
+
+    background:
+        linear-gradient(
+            135deg,
+            #82d4ff,
+            #a9e3ff
+        );
+
+    color:
+        white;
+
+    width:
+        90%;
+
+    max-width:
+        560px;
+
+    /*
+       Responsive card
+    */
+
+    max-height:
+        82vh;
+
+    overflow-y:
+        auto;
+
+    padding:
+        28px 30px;
+
+    opacity:
+        0;
+
+    border-radius:
+        25px;
+
+    text-align:
+        center;
+
+    box-shadow:
+
+        0 0 30px #d8f5ff,
+
+        0 0 60px
+        rgba(130, 212, 255, 0.7);
+
+    transition:
+        1s ease;
+
+    z-index:
+        7;
+}
+
+.card.show {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    opacity:
+        1;
+}
+
+/* ============================= */
+/* MESSAGE TEXT */
+/* ============================= */
+
+.typing {
+
+    font-family:
+        'Amatic SC',
+        cursive;
+
+    font-weight:
+        700;
+
+    border-right:
+        2px solid white;
+
+    white-space:
+        pre-wrap;
+
+    overflow:
+        hidden;
+
+    /*
+       Bigger and easier to read
+    */
+
+    font-size:
+        clamp(20px, 4vw, 28px);
+
+    line-height:
+        1.45;
+
+    letter-spacing:
+        0.3px;
+
+    text-shadow:
+
+        1px 1px 3px
+        rgba(0, 80, 130, 0.5);
+}
+
+/* ============================= */
+/* CARD MOBILE */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        width:
+            92%;
+
+        max-height:
+            78vh;
+
+        padding:
+            24px 20px;
+
+        border-radius:
+            22px;
+    }
+
+    .typing {
+
+        font-size:
+            clamp(20px, 6vw, 25px);
+
+        line-height:
+            1.4;
+    }
+}
+
+/* ============================= */
+/* FLOATING TEXT */
+/* ============================= */
+
+.float {
+
+    position:
+        absolute;
+
+    font-family:
+        'Amatic SC',
+        cursive;
+
+    font-weight:
+        700;
+
+    font-size:
+        clamp(18px, 3.5vw, 28px);
+
+    letter-spacing:
+        0.5px;
+
+    pointer-events:
+        none;
+
+    opacity:
+        0;
+
+    animation:
+
+        floatRandom
+        4.5s
+        linear
+        forwards,
+
+        textPop
+        0.5s
+        ease;
+
+    text-shadow:
+
+        0 0 8px #8ed8ff,
+
+        1px 1px 4px
+        rgba(0, 60, 100, 0.8);
+}
+
+/* ============================= */
+/* FLOATING MOVEMENT */
+/* ============================= */
+
+@keyframes floatRandom {
+
+    0% {
+
+        opacity:
+            1;
+
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                var(--xMove),
+                var(--yMove)
+            )
+            scale(1.3);
+    }
+}
+
+/* ============================= */
+/* TEXT POP */
+/* ============================= */
+
+@keyframes textPop {
+
+    0% {
+
+        transform:
+            scale(0.4);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+    }
+}
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+.float-img {
+
+    position:
+        absolute;
+
+    width:
+        105px;
+
+    border-radius:
+        15px;
+
+    border:
+        3px solid #a9e8ff;
+
+    pointer-events:
+        none;
+
+    opacity:
+        0;
+
+    animation:
+
+        floatRandomImg
+        5s
+        linear
+        forwards,
+
+        imgGlow
+        1.5s
+        ease-in-out
+        infinite
+        alternate;
+
+    box-shadow:
+        0 0 10px #8ed8ff;
+}
+
+/* Mobile pictures slightly smaller */
+
+@media (max-width: 600px) {
+
+    .float-img {
+
+        width:
+            80px;
+
+        border-width:
+            2px;
+    }
+}
+
+/* ============================= */
+/* FLOATING IMAGE MOVEMENT */
+/* ============================= */
+
+@keyframes floatRandomImg {
+
+    0% {
+
+        opacity:
+            1;
+
+        transform:
+            translate(0, 0)
+            scale(1)
+            rotate(0deg);
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                var(--xMove),
+                var(--yMove)
+            )
+            scale(1.25)
+            rotate(var(--rotation));
+    }
+}
+
+/* ============================= */
+/* IMAGE GLOW */
+/* ============================= */
+
+@keyframes imgGlow {
+
+    0% {
+
+        box-shadow:
+            0 0 5px #8ed8ff;
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 20px #e5f8ff;
+    }
+}
+
+/* ============================= */
+/* GLITTER POP */
+/* ============================= */
+
+.glitter {
+
+    position:
+        absolute;
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    animation:
+        glitter
+        1s
+        linear
+        forwards;
+
+    box-shadow:
+        0 0 8px white;
+}
+
+/* ============================= */
+/* GLITTER ANIMATION */
+/* ============================= */
+
+@keyframes glitter {
+
+    0% {
+
+        transform:
+            scale(0.3);
+
+        opacity:
+            1;
+    }
+
+    100% {
+
+        transform:
+            scale(2.5)
+            translateY(-60px);
+
+        opacity:
+            0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ============================= -->
+<!-- BACKGROUND VIDEO -->
+<!-- ============================= -->
+
+<video
+    id="bg-video"
+    autoplay
+    loop
+    muted
+>
+
+    <source
+        src="her.mp4"
+        type="video/mp4"
+    >
+
+</video>
+
+<div class="overlay"></div>
+
+
+<!-- ============================= -->
+<!-- AUDIO -->
+<!-- ============================= -->
+
+<audio id="bg-music">
+
+    <source
+        src="birthday.mp3"
+        type="audio/mp3"
+    >
+
+</audio>
+
+
+<!-- ============================= -->
+<!-- MAIN CONTENT -->
+<!-- ============================= -->
+
+<div class="content">
+
+    <h1>
+        Hii yayangggg and happyy belated birthdayyy!!! 💙
+    </h1>
+
+    <p class="subtitle">
+        ✨ Made with love, questionable coding skills, and way too much love for one pretty girl. ✨
+    </p>
+
+    <button id="main-btn">
+
+        Openn it sayangg and hopee you enjoyy ittt &lt;33 💙
+
+    </button>
+
+    <p style="margin-top:30px;">
+
+        Enjoyy yourr speciall dayy sayanggg &lt;33 🩵
+
+    </p>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- ENVELOPE -->
+<!-- ============================= -->
+
+<div
+    class="envelope"
+    id="envelope"
+>
+
+    💌
+
+</div>
+
+
+<!-- ============================= -->
+<!-- BIRTHDAY CARD -->
+<!-- ============================= -->
+
+<div
+    class="card"
+    id="card"
+>
+
+    <span
+        id="wish"
+        class="typing"
+    ></span>
+
+</div>
+
+
+<script>
+
+/* ============================= */
+/* ELEMENTS */
+/* ============================= */
+
+const btn =
+    document.getElementById("main-btn");
+
+const envelope =
+    document.getElementById("envelope");
+
+const card =
+    document.getElementById("card");
+
+const wish =
+    document.getElementById("wish");
+
+const music =
+    document.getElementById("bg-music");
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+/*
+   5 different pictures.
+
+   Make sure these files are in
+   the SAME folder as this HTML.
+*/
+
+const floatingImages = [
+
+    "sye.jpg",
+
+    "sye1.jpg",
+
+    "sye2.jpg",
+
+    "sye3.jpg",
+
+    "sye4.jpg"
+
+];
+
+
+/* ============================= */
+/* BIRTHDAY MESSAGE */
+/* ============================= */
+
+const message =
+
+"🎉 Happy birthdayyy againn 🎉\n" +
+
+"May your day be full of love, joyy and all the soft things that make you smilee.\n" +
+
+"Hope your day is as beautifull as you aree sayanggg!! 💙💙💙\n" +
+
+"I hope today brings you all the little things that make your heart feel light bc you deserve a really lovely dayy <3\n" +
+
+"I also hope your day turns out unexpectedly nicee, just like how your presence feels sometimes 🌸";
+
+
+/* ============================= */
+/* BUTTON CLICK */
+/* ============================= */
+
+btn.addEventListener("click", () => {
+
+
+    /* ============================= */
+    /* MUSIC */
+    /* ============================= */
+
+    music.volume =
+        0.9;
+
+    music.play().catch(() => {});
+
+
+    /* ============================= */
+    /* DISABLE BUTTON */
+    /* ============================= */
+
+    btn.disabled =
+        true;
+
+    btn.style.opacity =
+        "0.4";
+
+
+    /* ============================= */
+    /* GLITTER POP */
+    /* ============================= */
+
+    for (
+        let i = 0;
+        i < 40;
+        i++
+    ) {
+
+        let g =
+            document.createElement("div");
+
+        g.classList.add(
+            "glitter"
+        );
+
+
+        g.style.left =
+            (
+                window.innerWidth / 2 +
+                (
+                    Math.random() * 240 -
+                    120
+                )
+            ) + "px";
+
+
+        g.style.top =
+            (
+                window.innerHeight / 2 +
+                (
+                    Math.random() * 120 -
+                    60
+                )
+            ) + "px";
+
+
+        /* Soft blue glitter */
+
+        const glitterColors = [
+
+            "#ffffff",
+
+            "#dff7ff",
+
+            "#b8ecff",
+
+            "#8edcff",
+
+            "#c8f2ff"
+
+        ];
+
+
+        g.style.background =
+            glitterColors[
+                Math.floor(
+                    Math.random() *
+                    glitterColors.length
+                )
+            ];
+
+
+        document.body.appendChild(g);
+
+
+        setTimeout(
+            () => g.remove(),
+            1000
+        );
+
+    }
+
+
+    /* ============================= */
+    /* ENVELOPE ANIMATION */
+    /* ============================= */
+
+    envelope.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+
+        () =>
+            envelope.classList.add(
+                "pop-finish"
+            ),
+
+        300
+
+    );
+
+
+    setTimeout(() => {
+
+
+        envelope.classList.add(
+            "open"
+        );
+
+
+        card.classList.add(
+            "show"
+        );
+
+
+        typeWriter();
+
+
+        /* ============================= */
+        /* FLOATING TEXT */
+        /* ============================= */
+
+        setInterval(
+            createFloatingText,
+            1100
+        );
+
+
+        /* ============================= */
+        /* FLOATING IMAGES */
+        /* ============================= */
+
+        setInterval(
+            createFloatingImage,
+            2000
+        );
+
+
+    }, 900);
+
+});
+
+
+/* ============================= */
+/* TYPEWRITER */
+/* ============================= */
+
+let i =
+    0;
+
+
+function typeWriter() {
+
+    if (
+        i < message.length
+    ) {
+
+        wish.innerHTML +=
+            message.charAt(i);
+
+        i++;
+
+
+        setTimeout(
+            typeWriter,
+            45
+        );
+
+    }
+
+}
+
+
+/* ============================= */
+/* FLOATING TEXT */
+/* ============================= */
+
+function createFloatingText() {
+
+
+    const words = [
+
+        "iloveyou forever and more than you ever think sayangg 🤍🤍",
+
+        "🎉🎉🎉🎉",
+
+        "may yourr dayyy full with happiness sayanggg ✨",
+
+        "don't be insecure sayangg, you're the prettiest girl ever in the world 💙💙",
+
+        "you're more than enough, you're more than enough sayangg",
+
+        "it's myy bidadari duniaa birthdayyy 🌸",
+
+        "you deserve all the happinesss in the world sayanggg 💞💞",
+
+        "stay prettyy sayanggg 🥹🩵"
+
+    ];
+
+
+    const el =
+        document.createElement("div");
+
+
+    el.classList.add(
+        "float"
+    );
+
+
+    el.innerText =
+        words[
+            Math.floor(
+                Math.random() *
+                words.length
+            )
+        ];
+
+
+    /* Random horizontal position */
+
+    el.style.left =
+        Math.random() * 80 +
+        "%";
+
+
+    el.style.bottom =
+        "-30px";
+
+
+    /* Random movement */
+
+    el.style.setProperty(
+
+        "--xMove",
+
+        (
+            Math.random() * 300 -
+            150
+        ) + "px"
+
+    );
+
+
+    el.style.setProperty(
+
+        "--yMove",
+
+        (
+            -300 -
+            Math.random() * 200
+        ) + "px"
+
+    );
+
+
+    document.body.appendChild(
+        el
+    );
+
+
+    setTimeout(
+        () => el.remove(),
+        5000
+    );
+
+}
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+function createFloatingImage() {
+
+
+    const img =
+        document.createElement("img");
+
+
+    /* Randomly choose one of 5 pictures */
+
+    img.src =
+        floatingImages[
+            Math.floor(
+                Math.random() *
+                floatingImages.length
+            )
+        ];
+
+
+    img.classList.add(
+        "float-img"
+    );
+
+
+    /* Random starting position */
+
+    img.style.left =
+        Math.random() * 80 +
+        "%";
+
+
+    img.style.bottom =
+        "-60px";
+
+
+    /* Random movement */
+
+    img.style.setProperty(
+
+        "--xMove",
+
+        (
+            Math.random() * 300 -
+            150
+        ) + "px"
+
+    );
+
+
+    img.style.setProperty(
+
+        "--yMove",
+
+        (
+            -350 -
+            Math.random() * 220
+        ) + "px"
+
+    );
+
+
+    /* Random rotation */
+
+    img.style.setProperty(
+
+        "--rotation",
+
+        (
+            Math.random() * 30 -
+            15
+        ) + "deg"
+
+    );
+
+
+    document.body.appendChild(
+        img
+    );
+
+
+    setTimeout(
+        () => img.remove(),
+        5500
+    );
+
+}
+
+</script>
+
+</body>
+</html>
