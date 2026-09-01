@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <!-- Amatic SC Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet">
+
 
 <title>It's yayangggg birthdayy 💙💙</title>
 
+
 <style>
+
+/* ================================================= */
+/* RESET */
+/* ================================================= */
 
 * {
     margin: 0;
@@ -19,15 +35,30 @@
     box-sizing: border-box;
 }
 
+
+/* ================================================= */
+/* BODY */
+/* ================================================= */
+
+html,
 body {
 
-    /* AMATIC SC */
-    font-family: 'Amatic SC', cursive;
+    width: 100%;
+    height: 100%;
 
-    height: 100vh;
     overflow: hidden;
 
+}
+
+body {
+
+    font-family: 'Amatic SC', cursive;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -36,11 +67,15 @@ body {
     color: white;
 
     position: relative;
+
+    background: #6f8492;
+
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* VIDEO BACKGROUND */
-/* ============================= */
+/* ================================================= */
 
 #bg-video {
 
@@ -49,37 +84,78 @@ body {
     top: 0;
     left: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+
+    width: 100dvw;
+    height: 100dvh;
 
     object-fit: cover;
 
-    z-index: -2;
+    z-index: -3;
+
+    pointer-events: none;
+
 }
+
+
+/* ================================================= */
+/* FIXED BLUE OVERLAY */
+/* ================================================= */
+
+/*
+   IMPORTANT:
+
+   Previously this was position:absolute.
+
+   Now it is FIXED so the blur stays
+   locked to the viewport and does not
+   move when the page / mobile browser
+   viewport changes.
+*/
 
 .overlay {
 
-    position: absolute;
+    position: fixed;
 
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    /* Soft blue overlay */
+    width: 100vw;
+    height: 100vh;
 
-    backdrop-filter:
-        blur(6px)
-        brightness(0.55);
+    width: 100dvw;
+    height: 100dvh;
 
     background:
-        rgba(100, 180, 255, 0.12);
+        rgba(55, 115, 150, 0.22);
 
-    z-index: -1;
+    backdrop-filter:
+        blur(7px)
+        brightness(0.55);
+
+    -webkit-backdrop-filter:
+        blur(7px)
+        brightness(0.55);
+
+    z-index: -2;
+
+    pointer-events: none;
+
 }
 
-/* ============================= */
-/* CONTENT */
-/* ============================= */
+
+/* ================================================= */
+/* MAIN CONTENT */
+/* ================================================= */
 
 .content {
+
+    position: relative;
+
+    z-index: 2;
 
     text-align: center;
 
@@ -88,55 +164,41 @@ body {
     max-width: 1200px;
 
     padding: 20px;
+
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* MAIN TITLE */
-/* ============================= */
+/* ================================================= */
 
 h1 {
 
     animation: blink 1.5s infinite;
 
-    font-family: 'Amatic SC', cursive;
+    font-size:
+        clamp(30px, 5vw, 58px);
 
     font-weight: 700;
-
-    /*
-       Responsive font
-       Bigger because Amatic SC is narrow
-    */
-
-    font-size:
-        clamp(34px, 5vw, 62px);
-
-    /*
-       Baby blue glow
-    */
-
-    text-shadow:
-
-        2px 2px 15px #8ed8ff,
-
-        0 0 25px #bde9ff,
-
-        0 0 40px rgba(142, 216, 255, 0.8);
-
-    margin-bottom: 12px;
-
-    margin-top: -20px;
-
-    width: 100%;
-
-    max-width: 1150px;
-
-    margin-left: auto;
-    margin-right: auto;
 
     line-height: 1.05;
 
     letter-spacing: 1px;
+
+    text-shadow:
+
+        0 0 8px #8edcff,
+
+        0 0 20px #8edcff,
+
+        0 0 35px #c9f4ff;
+
+    margin-bottom: 15px;
+
+    width: 100%;
+
 }
+
 
 /* Desktop */
 
@@ -147,106 +209,102 @@ h1 {
         white-space: nowrap;
 
         font-size:
-            clamp(38px, 4.5vw, 62px);
+            clamp(34px, 4vw, 58px);
+
     }
+
 }
 
-/* Mobile */
+
+/* Phone */
 
 @media (max-width: 767px) {
 
     h1 {
 
-        white-space: normal;
-
         font-size:
-            clamp(34px, 9vw, 48px);
+            clamp(28px, 8vw, 42px);
 
         line-height: 1.05;
 
-        padding: 0 5px;
     }
+
 }
 
-/* ============================= */
-/* BLINK */
-/* ============================= */
 
 @keyframes blink {
 
-    0%, 100% {
+    0%,
+    100% {
+
         opacity: 1;
+
     }
 
     50% {
-        opacity: 0.4;
+
+        opacity: 0.65;
+
     }
+
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* SUBTITLE */
-/* ============================= */
+/* ================================================= */
 
 p.subtitle {
 
-    font-family:
-        'Amatic SC',
-        cursive;
-
-    font-weight: 700;
-
     font-size:
-        clamp(20px, 3vw, 28px);
+        clamp(18px, 3vw, 25px);
+
+    line-height: 1.2;
 
     margin-bottom: 18px;
-
-    letter-spacing: 0.5px;
 
     text-shadow:
 
         1px 1px 5px black,
 
-        0 0 10px #8ed8ff,
+        0 0 10px #8edcff;
 
-        0 0 15px rgba(142, 216, 255, 0.7);
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* BUTTON */
-/* ============================= */
+/* ================================================= */
 
 button {
 
     padding:
-        12px 24px;
+        12px 22px;
 
     font-family:
         'Amatic SC',
         cursive;
 
+    font-size:
+        clamp(18px, 4vw, 28px);
+
     font-weight: 700;
 
-    font-size:
-        clamp(20px, 3.5vw, 30px);
-
-    letter-spacing: 0.5px;
-
-    /* Soft baby blue */
-
     background:
-        #82d4ff;
+        linear-gradient(
+            135deg,
+            #82d4ff,
+            #9fe1ff
+        );
 
-    color:
-        white;
+    color: white;
 
     border:
-        2px solid #c9f0ff;
+        2px solid #d8f6ff;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     animation:
         blink 2s infinite;
@@ -259,8 +317,10 @@ button {
         rgba(130, 212, 255, 0.8);
 
     transition:
-        0.25s;
+        0.25s ease;
+
 }
+
 
 button:hover {
 
@@ -276,41 +336,25 @@ button:hover {
 
         0 0 35px
         rgba(130, 212, 255, 0.9);
+
 }
 
-/* ============================= */
-/* BOTTOM TEXT */
-/* ============================= */
 
-.content > p:last-child {
+button:disabled {
 
-    font-family:
-        'Amatic SC',
-        cursive;
+    cursor: default;
 
-    font-weight: 700;
-
-    font-size:
-        clamp(19px, 3vw, 26px);
-
-    letter-spacing:
-        0.5px;
-
-    text-shadow:
-        0 0 8px #8ed8ff;
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* ENVELOPE */
-/* ============================= */
+/* ================================================= */
 
 .envelope {
 
-    width:
-        260px;
-
-    height:
-        160px;
+    width: 260px;
+    height: 160px;
 
     background:
         #ffffff;
@@ -318,36 +362,25 @@ button:hover {
     border:
         3px solid #82d4ff;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
-    position:
-        absolute;
+    position: fixed;
 
-    top:
-        50%;
-
-    left:
-        50%;
+    top: 50%;
+    left: 50%;
 
     transform:
         translate(-50%, -50%)
         scale(0.1);
 
-    opacity:
-        0;
+    opacity: 0;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
+    align-items: center;
 
-    align-items:
-        center;
-
-    font-size:
-        2.5rem;
+    font-size: 2.5rem;
 
     transition:
         0.7s ease;
@@ -359,26 +392,30 @@ button:hover {
         0 0 40px
         rgba(130, 212, 255, 0.7);
 
-    z-index:
-        5;
+    z-index: 5;
+
 }
+
 
 .envelope.show {
 
-    opacity:
-        1;
+    opacity: 1;
 
     transform:
         translate(-50%, -50%)
         scale(1.25);
+
 }
+
 
 .envelope.pop-finish {
 
     transform:
         translate(-50%, -50%)
         scale(1);
+
 }
+
 
 .envelope.open {
 
@@ -386,68 +423,48 @@ button:hover {
         translate(-50%, -50%)
         scale(1)
         rotateX(180deg);
+
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* CARD */
-/* ============================= */
+/* ================================================= */
 
 .card {
 
-    position:
-        absolute;
+    position: fixed;
 
-    top:
-        50%;
-
-    left:
-        50%;
+    top: 50%;
+    left: 50%;
 
     transform:
         translate(-50%, -50%)
         scale(0.2);
 
-    /*
-       Soft blue gradient
-    */
-
     background:
+
         linear-gradient(
             135deg,
             #82d4ff,
             #a9e3ff
         );
 
-    color:
-        white;
+    color: white;
 
-    width:
-        90%;
+    width: min(90%, 520px);
 
-    max-width:
-        560px;
-
-    /*
-       Responsive card
-    */
-
-    max-height:
-        82vh;
-
-    overflow-y:
-        auto;
+    max-height: 82vh;
+    max-height: 82svh;
 
     padding:
-        28px 30px;
+        clamp(22px, 5vw, 35px);
 
-    opacity:
-        0;
+    opacity: 0;
 
-    border-radius:
-        25px;
+    border-radius: 25px;
 
-    text-align:
-        center;
+    text-align: center;
 
     box-shadow:
 
@@ -459,9 +476,21 @@ button:hover {
     transition:
         1s ease;
 
-    z-index:
-        7;
+    z-index: 7;
+
+    overflow-y: auto;
+
 }
+
+
+/* Hide scrollbar */
+
+.card::-webkit-scrollbar {
+
+    width: 0;
+
+}
+
 
 .card.show {
 
@@ -469,22 +498,18 @@ button:hover {
         translate(-50%, -50%)
         scale(1);
 
-    opacity:
-        1;
+    opacity: 1;
+
 }
 
-/* ============================= */
-/* MESSAGE TEXT */
-/* ============================= */
+
+/* ================================================= */
+/* TYPING MESSAGE */
+/* ================================================= */
 
 .typing {
 
-    font-family:
-        'Amatic SC',
-        cursive;
-
-    font-weight:
-        700;
+    display: block;
 
     border-right:
         2px solid white;
@@ -492,86 +517,47 @@ button:hover {
     white-space:
         pre-wrap;
 
-    overflow:
-        hidden;
-
-    /*
-       Bigger and easier to read
-    */
+    overflow-wrap:
+        break-word;
 
     font-size:
-        clamp(20px, 4vw, 28px);
+        clamp(18px, 4vw, 26px);
 
     line-height:
         1.45;
 
     letter-spacing:
-        0.3px;
+        0.5px;
 
     text-shadow:
-
         1px 1px 3px
         rgba(0, 80, 130, 0.5);
+
 }
 
-/* ============================= */
-/* CARD MOBILE */
-/* ============================= */
 
-@media (max-width: 600px) {
-
-    .card {
-
-        width:
-            92%;
-
-        max-height:
-            78vh;
-
-        padding:
-            24px 20px;
-
-        border-radius:
-            22px;
-    }
-
-    .typing {
-
-        font-size:
-            clamp(20px, 6vw, 25px);
-
-        line-height:
-            1.4;
-    }
-}
-
-/* ============================= */
+/* ================================================= */
 /* FLOATING TEXT */
-/* ============================= */
+/* ================================================= */
 
 .float {
 
-    position:
-        absolute;
+    position: fixed;
 
     font-family:
         'Amatic SC',
         cursive;
 
-    font-weight:
-        700;
-
     font-size:
-        clamp(18px, 3.5vw, 28px);
+        clamp(17px, 3.5vw, 25px);
 
-    letter-spacing:
-        0.5px;
+    font-weight: 700;
 
-    pointer-events:
-        none;
+    pointer-events: none;
 
-    opacity:
-        0;
+    opacity: 0;
+
+    z-index: 3;
 
     animation:
 
@@ -590,28 +576,25 @@ button:hover {
 
         1px 1px 4px
         rgba(0, 60, 100, 0.8);
+
 }
 
-/* ============================= */
-/* FLOATING MOVEMENT */
-/* ============================= */
 
 @keyframes floatRandom {
 
     0% {
 
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translate(0, 0)
             scale(1);
+
     }
 
     100% {
 
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translate(
@@ -619,12 +602,11 @@ button:hover {
                 var(--yMove)
             )
             scale(1.3);
+
     }
+
 }
 
-/* ============================= */
-/* TEXT POP */
-/* ============================= */
 
 @keyframes textPop {
 
@@ -632,43 +614,47 @@ button:hover {
 
         transform:
             scale(0.4);
+
     }
 
     100% {
 
         transform:
             scale(1);
+
     }
+
 }
 
-/* ============================= */
+
+/* ================================================= */
 /* FLOATING IMAGES */
-/* ============================= */
+/* ================================================= */
 
 .float-img {
 
-    position:
-        absolute;
+    position: fixed;
 
     width:
-        105px;
+        clamp(75px, 17vw, 105px);
 
-    border-radius:
-        15px;
+    max-width: 105px;
+
+    border-radius: 15px;
 
     border:
         3px solid #a9e8ff;
 
-    pointer-events:
-        none;
+    pointer-events: none;
 
-    opacity:
-        0;
+    opacity: 0;
+
+    z-index: 3;
 
     animation:
 
         floatRandomImg
-        5s
+        5.5s
         linear
         forwards,
 
@@ -678,45 +664,25 @@ button:hover {
         infinite
         alternate;
 
-    box-shadow:
-        0 0 10px #8ed8ff;
 }
 
-/* Mobile pictures slightly smaller */
-
-@media (max-width: 600px) {
-
-    .float-img {
-
-        width:
-            80px;
-
-        border-width:
-            2px;
-    }
-}
-
-/* ============================= */
-/* FLOATING IMAGE MOVEMENT */
-/* ============================= */
 
 @keyframes floatRandomImg {
 
     0% {
 
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translate(0, 0)
             scale(1)
             rotate(0deg);
+
     }
 
     100% {
 
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translate(
@@ -725,12 +691,11 @@ button:hover {
             )
             scale(1.25)
             rotate(var(--rotation));
+
     }
+
 }
 
-/* ============================= */
-/* IMAGE GLOW */
-/* ============================= */
 
 @keyframes imgGlow {
 
@@ -738,37 +703,38 @@ button:hover {
 
         box-shadow:
             0 0 5px #8ed8ff;
+
     }
 
     100% {
 
         box-shadow:
             0 0 20px #e5f8ff;
+
     }
+
 }
 
-/* ============================= */
-/* GLITTER POP */
-/* ============================= */
+
+/* ================================================= */
+/* GLITTER */
+/* ================================================= */
 
 .glitter {
 
-    position:
-        absolute;
+    position: fixed;
 
-    width:
-        6px;
+    width: 6px;
+    height: 6px;
 
-    height:
-        6px;
+    border-radius: 50%;
 
-    border-radius:
-        50%;
+    pointer-events: none;
 
-    pointer-events:
-        none;
+    z-index: 4;
 
     animation:
+
         glitter
         1s
         linear
@@ -776,11 +742,9 @@ button:hover {
 
     box-shadow:
         0 0 8px white;
+
 }
 
-/* ============================= */
-/* GLITTER ANIMATION */
-/* ============================= */
 
 @keyframes glitter {
 
@@ -789,8 +753,8 @@ button:hover {
         transform:
             scale(0.3);
 
-        opacity:
-            1;
+        opacity: 1;
+
     }
 
     100% {
@@ -799,117 +763,244 @@ button:hover {
             scale(2.5)
             translateY(-60px);
 
-        opacity:
-            0;
+        opacity: 0;
+
     }
+
+}
+
+
+/* ================================================= */
+/* SMALL PHONE ADJUSTMENT */
+/* ================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+
+        padding: 12px;
+
+    }
+
+    .content {
+
+        padding: 10px;
+
+    }
+
+    p.subtitle {
+
+        font-size: 19px;
+
+    }
+
+    button {
+
+        padding:
+            10px 16px;
+
+        font-size: 21px;
+
+    }
+
+    .card {
+
+        width: 88%;
+
+        max-height: 78svh;
+
+        padding:
+            22px 18px;
+
+        border-radius: 22px;
+
+    }
+
+    .typing {
+
+        font-size: 20px;
+
+        line-height: 1.4;
+
+    }
+
+}
+
+
+/* ================================================= */
+/* VERY SMALL PHONE */
+/* ================================================= */
+
+@media (max-width: 360px) {
+
+    h1 {
+
+        font-size: 27px;
+
+    }
+
+    p.subtitle {
+
+        font-size: 17px;
+
+    }
+
+    button {
+
+        font-size: 19px;
+
+    }
+
+    .typing {
+
+        font-size: 18px;
+
+    }
+
+}
+
+
+/* ================================================= */
+/* REDUCE MOTION IF DEVICE REQUESTS IT */
+/* ================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<!-- ============================= -->
+
+<!-- ================================================= -->
 <!-- BACKGROUND VIDEO -->
-<!-- ============================= -->
+<!-- ================================================= -->
 
 <video
     id="bg-video"
     autoplay
     loop
     muted
->
+    playsinline>
 
     <source
         src="her.mp4"
-        type="video/mp4"
-    >
+        type="video/mp4">
 
 </video>
+
+
+<!-- FIXED OVERLAY -->
 
 <div class="overlay"></div>
 
 
-<!-- ============================= -->
+<!-- ================================================= -->
 <!-- AUDIO -->
-<!-- ============================= -->
+<!-- ================================================= -->
 
-<audio id="bg-music">
+<audio
+    id="bg-music">
 
     <source
         src="birthday.mp3"
-        type="audio/mp3"
-    >
+        type="audio/mp3">
 
 </audio>
 
 
-<!-- ============================= -->
+<!-- ================================================= -->
 <!-- MAIN CONTENT -->
-<!-- ============================= -->
+<!-- ================================================= -->
 
 <div class="content">
 
+
     <h1>
+
         Hii yayangggg and happyy belated birthdayyy!!! 💙
+
     </h1>
 
+
     <p class="subtitle">
-        ✨ Made with love, questionable coding skills, and way too much love for one pretty girl. ✨
+
+        ✨ Made with love, a little bit of stupidity, and a lot of love for you ✨
+
     </p>
+
 
     <button id="main-btn">
 
-        Openn it sayangg and hopee you enjoyy it!! &lt;33 💙
+        Openn it sayangg and hopee you enjoyy ittt &lt;33 💙
 
     </button>
 
-    <p style="margin-top:30px;">
+
+    <p style="margin-top:30px; font-size:22px;">
 
         Enjoyy yourr speciall dayy sayanggg &lt;33 🩵
 
     </p>
 
+
 </div>
 
 
-<!-- ============================= -->
+<!-- ================================================= -->
 <!-- ENVELOPE -->
-<!-- ============================= -->
+<!-- ================================================= -->
 
 <div
     class="envelope"
-    id="envelope"
->
+    id="envelope">
 
     💌
 
 </div>
 
 
-<!-- ============================= -->
-<!-- BIRTHDAY CARD -->
-<!-- ============================= -->
+<!-- ================================================= -->
+<!-- CARD -->
+<!-- ================================================= -->
 
 <div
     class="card"
-    id="card"
->
+    id="card">
 
     <span
         id="wish"
-        class="typing"
-    ></span>
+        class="typing">
+    </span>
 
 </div>
 
 
 <script>
 
-/* ============================= */
+
+/* ================================================= */
 /* ELEMENTS */
-/* ============================= */
+/* ================================================= */
 
 const btn =
     document.getElementById("main-btn");
@@ -927,15 +1018,15 @@ const music =
     document.getElementById("bg-music");
 
 
-/* ============================= */
+/* ================================================= */
 /* FLOATING IMAGES */
-/* ============================= */
+/* ================================================= */
 
 /*
-   5 different pictures.
+   5 pictures.
 
-   Make sure these files are in
-   the SAME folder as this HTML.
+   Make sure all files are in
+   the SAME folder as this HTML file.
 */
 
 const floatingImages = [
@@ -953,54 +1044,59 @@ const floatingImages = [
 ];
 
 
-/* ============================= */
+/* ================================================= */
 /* BIRTHDAY MESSAGE */
-/* ============================= */
+/* ================================================= */
 
 const message =
 
-"🎉 Happy birthdayyy againn 🎉\n" +
+"🎉 Happy birthdayyy againn 🎉\n\n" +
 
-"May your day be full of love, joyy and all the soft things that make you smilee.\n" +
+"I just want you to know that having you in my life has changed so many things for me, in ways I probably never knew how to explain properly.\n\n" +
 
-"Hope your day is as beautifull as you aree sayanggg!! 💙💙💙\n" +
+"Looking back at our journey, we've been through quite a lot together. We've had our happy moments, our silly moments, our arguments, and moments where things weren't exactly perfect. But somehow, through everything, we're still here. And honestly, I'm really grateful for that. 💙\n\n" +
 
-"I hope today brings you all the little things that make your heart feel light bc you deserve a really lovely dayy <3\n" +
+"I know I'm far from perfect, and I know I've made my fair share of mistakes. Sometimes I say the wrong things, do the wrong things, or make things harder than they need to be. But one thing that always means so much to me is that, even after all that, you still choose me over and over again.\n\n" +
 
-"I also hope your day turns out unexpectedly nicee, just like how your presence feels sometimes 🌸";
+"Thank you for staying, for understanding me, and for giving us chances even when I probably didn't deserve them. I may not always know how to show it properly, but I really do appreciate you more than you know. 🥹💙\n\n" +
+
+"And please, don't be too insecure about yourself, okay? You are genuinely so pretty. I hope one day you can see yourself the way I see you, because sometimes I really don't understand how you can look at yourself and still think you're not pretty. 😭💙\n\n" +
+
+"You deserve to feel loved, appreciated, and beautiful, not only on your birthday but every day.\n\n" +
+
+"I hope this new chapter of your life brings you more happiness, more good memories, and more reasons to smile. And hopefully, I get to be there for many more of those moments with you. 🌸\n\n" +
+
+"Happy birthday once again, sayanggg. Thank you for being you, and thank you for being part of my life. I love youu. 💙🩵";
 
 
-/* ============================= */
+/* ================================================= */
 /* BUTTON CLICK */
-/* ============================= */
+/* ================================================= */
 
 btn.addEventListener("click", () => {
 
 
-    /* ============================= */
+    /* ============================================= */
     /* MUSIC */
-    /* ============================= */
+    /* ============================================= */
 
-    music.volume =
-        0.9;
+    music.volume = 0.9;
 
     music.play().catch(() => {});
 
 
-    /* ============================= */
+    /* ============================================= */
     /* DISABLE BUTTON */
-    /* ============================= */
+    /* ============================================= */
 
-    btn.disabled =
-        true;
+    btn.disabled = true;
 
-    btn.style.opacity =
-        "0.4";
+    btn.style.opacity = "0.4";
 
 
-    /* ============================= */
-    /* GLITTER POP */
-    /* ============================= */
+    /* ============================================= */
+    /* GLITTER */
+    /* ============================================= */
 
     for (
         let i = 0;
@@ -1008,52 +1104,53 @@ btn.addEventListener("click", () => {
         i++
     ) {
 
-        let g =
+        const g =
             document.createElement("div");
 
-        g.classList.add(
-            "glitter"
-        );
+        g.classList.add("glitter");
 
 
         g.style.left =
+
             (
                 window.innerWidth / 2 +
+
                 (
-                    Math.random() * 240 -
+                    Math.random() *
+                    240 -
                     120
                 )
+
             ) + "px";
 
 
         g.style.top =
+
             (
                 window.innerHeight / 2 +
+
                 (
-                    Math.random() * 120 -
+                    Math.random() *
+                    120 -
                     60
                 )
+
             ) + "px";
 
-
-        /* Soft blue glitter */
 
         const glitterColors = [
 
             "#ffffff",
-
             "#dff7ff",
-
             "#b8ecff",
-
             "#8edcff",
-
             "#c8f2ff"
 
         ];
 
 
         g.style.background =
+
             glitterColors[
                 Math.floor(
                     Math.random() *
@@ -1073,60 +1170,61 @@ btn.addEventListener("click", () => {
     }
 
 
-    /* ============================= */
-    /* ENVELOPE ANIMATION */
-    /* ============================= */
+    /* ============================================= */
+    /* ENVELOPE */
+    /* ============================================= */
 
-    envelope.classList.add(
-        "show"
-    );
+    envelope.classList.add("show");
 
 
     setTimeout(
+        () => {
 
-        () =>
             envelope.classList.add(
                 "pop-finish"
-            ),
+            );
 
+        },
         300
-
     );
 
+
+    /* ============================================= */
+    /* OPEN ENVELOPE */
+    /* ============================================= */
 
     setTimeout(() => {
 
 
-        envelope.classList.add(
-            "open"
-        );
+        envelope.classList.add("open");
 
 
-        card.classList.add(
-            "show"
-        );
+        card.classList.add("show");
 
 
         typeWriter();
 
 
-        /* ============================= */
-        /* FLOATING TEXT */
-        /* ============================= */
+        /*
+           Floating text:
+           Every 1.3 seconds
+        */
 
         setInterval(
             createFloatingText,
-            1100
+            1300
         );
 
 
-        /* ============================= */
-        /* FLOATING IMAGES */
-        /* ============================= */
+        /*
+           Floating images:
+           Every 2.5 seconds
+           to prevent overcrowding
+        */
 
         setInterval(
             createFloatingImage,
-            2000
+            2500
         );
 
 
@@ -1135,39 +1233,41 @@ btn.addEventListener("click", () => {
 });
 
 
-/* ============================= */
+/* ================================================= */
 /* TYPEWRITER */
-/* ============================= */
+/* ================================================= */
 
-let i =
-    0;
+let i = 0;
 
 
 function typeWriter() {
 
-    if (
-        i < message.length
-    ) {
+
+    if (i < message.length) {
+
 
         wish.innerHTML +=
+
             message.charAt(i);
+
 
         i++;
 
 
         setTimeout(
             typeWriter,
-            45
+            35
         );
+
 
     }
 
 }
 
 
-/* ============================= */
+/* ================================================= */
 /* FLOATING TEXT */
-/* ============================= */
+/* ================================================= */
 
 function createFloatingText() {
 
@@ -1178,17 +1278,21 @@ function createFloatingText() {
 
         "🎉🎉🎉🎉",
 
-        "may yourr dayyy full with happiness sayanggg ✨",
+        "may yourr dayyy be full of happiness sayanggg ✨",
 
-        "don't be insecure sayangg, you're the prettiest girl ever in the world 💙💙",
+        "don't be insecure sayangg, you're so pretty 💙💙",
 
-        "you're more than enough, you're more than enough sayangg",
+        "you're more than enough sayangg 🩵",
 
-        "it's myy bidadari duniaa birthdayyy 🌸",
+        "myy bidadari duniaa birthdayyy 🌸",
 
-        "you deserve all the happinesss in the world sayanggg 💞💞",
+        "you deserve all the happinesss in the world 💞",
 
-        "stay prettyy sayanggg 🥹🩵"
+        "stay prettyy sayanggg 🥹🩵",
+
+        "thank you for always choosing me 💙",
+
+        "another year of being my favourite person hehe 🤭"
 
     ];
 
@@ -1197,12 +1301,11 @@ function createFloatingText() {
         document.createElement("div");
 
 
-    el.classList.add(
-        "float"
-    );
+    el.classList.add("float");
 
 
     el.innerText =
+
         words[
             Math.floor(
                 Math.random() *
@@ -1211,14 +1314,15 @@ function createFloatingText() {
         ];
 
 
-    /* Random horizontal position */
+    /* Random position */
 
     el.style.left =
-        Math.random() * 80 +
-        "%";
+
+        Math.random() * 80 + "%";
 
 
     el.style.bottom =
+
         "-30px";
 
 
@@ -1229,7 +1333,8 @@ function createFloatingText() {
         "--xMove",
 
         (
-            Math.random() * 300 -
+            Math.random() *
+            300 -
             150
         ) + "px"
 
@@ -1242,15 +1347,14 @@ function createFloatingText() {
 
         (
             -300 -
-            Math.random() * 200
+            Math.random() *
+            200
         ) + "px"
 
     );
 
 
-    document.body.appendChild(
-        el
-    );
+    document.body.appendChild(el);
 
 
     setTimeout(
@@ -1261,9 +1365,9 @@ function createFloatingText() {
 }
 
 
-/* ============================= */
+/* ================================================= */
 /* FLOATING IMAGES */
-/* ============================= */
+/* ================================================= */
 
 function createFloatingImage() {
 
@@ -1272,9 +1376,10 @@ function createFloatingImage() {
         document.createElement("img");
 
 
-    /* Randomly choose one of 5 pictures */
+    /* Random picture */
 
     img.src =
+
         floatingImages[
             Math.floor(
                 Math.random() *
@@ -1291,12 +1396,13 @@ function createFloatingImage() {
     /* Random starting position */
 
     img.style.left =
-        Math.random() * 80 +
-        "%";
+
+        Math.random() * 82 + "%";
 
 
     img.style.bottom =
-        "-60px";
+
+        "-70px";
 
 
     /* Random movement */
@@ -1306,7 +1412,8 @@ function createFloatingImage() {
         "--xMove",
 
         (
-            Math.random() * 300 -
+            Math.random() *
+            300 -
             150
         ) + "px"
 
@@ -1319,7 +1426,8 @@ function createFloatingImage() {
 
         (
             -350 -
-            Math.random() * 220
+            Math.random() *
+            220
         ) + "px"
 
     );
@@ -1332,26 +1440,28 @@ function createFloatingImage() {
         "--rotation",
 
         (
-            Math.random() * 30 -
+            Math.random() *
+            30 -
             15
         ) + "deg"
 
     );
 
 
-    document.body.appendChild(
-        img
-    );
+    document.body.appendChild(img);
 
 
     setTimeout(
         () => img.remove(),
-        5500
+        6000
     );
 
 }
 
+
 </script>
 
+
 </body>
+
 </html>
