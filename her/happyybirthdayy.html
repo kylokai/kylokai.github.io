@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>It's yayangggg birthdayy 💙💙</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+/* ============================= */
+/* VIDEO BACKGROUND */
+/* ============================= */
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    /* Soft blue overlay */
+    backdrop-filter: blur(6px) brightness(0.55);
+
+    background: rgba(100, 180, 255, 0.12);
+
+    z-index: -1;
+}
+
+
+/* ============================= */
+/* CONTENT */
+/* ============================= */
+
+.content {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+h1 {
+    animation: blink 1.5s infinite;
+
+    font-size: clamp(24px, 4vw, 48px);
+
+    text-shadow:
+        2px 2px 15px #8ed8ff,
+        0 0 25px #bde9ff;
+
+    margin-bottom: 10px;
+    margin-top: -20px;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    line-height: 1.25;
+}
+
+
+/* Desktop */
+
+@media (min-width: 768px) {
+
+    h1 {
+        white-space: nowrap;
+        font-size: clamp(28px, 3.5vw, 48px);
+    }
+
+}
+
+
+/* Smaller phones */
+
+@media (max-width: 767px) {
+
+    h1 {
+        font-size: clamp(24px, 7vw, 36px);
+        line-height: 1.2;
+    }
+
+}
+
+
+@keyframes blink {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+}
+
+
+p.subtitle {
+
+    font-size: clamp(14px, 3.5vw, 18px);
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        1px 1px 5px black,
+        0 0 10px #8ed8ff;
+}
+
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+button {
+
+    padding: 12px 20px;
+
+    font-size: clamp(14px, 4vw, 22px);
+
+    background: #82d4ff;
+
+    color: white;
+
+    border: 2px solid #c9f0ff;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    animation: blink 2s infinite;
+
+    box-shadow:
+        0 0 12px #bde9ff,
+        0 0 25px rgba(130, 212, 255, 0.8);
+
+    transition: 0.25s;
+}
+
+
+button:hover {
+
+    transform: scale(1.1);
+
+    background: #a5e2ff;
+
+    box-shadow:
+        0 0 20px #d9f5ff,
+        0 0 35px rgba(130, 212, 255, 0.9);
+
+}
+
+
+/* ============================= */
+/* ENVELOPE */
+/* ============================= */
+
+.envelope {
+
+    width: 260px;
+    height: 160px;
+
+    background: #ffffff;
+
+    border: 3px solid #82d4ff;
+
+    border-radius: 12px;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.1);
+
+    opacity: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.5rem;
+
+    transition: 0.7s ease;
+
+    box-shadow:
+        0 0 20px #9bddff,
+        0 0 40px rgba(130, 212, 255, 0.7);
+
+    z-index: 5;
+}
+
+
+.envelope.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.25);
+
+}
+
+
+.envelope.pop-finish {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
+
+
+.envelope.open {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1)
+        rotateX(180deg);
+
+}
+
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.card {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.2);
+
+    background: linear-gradient(
+        135deg,
+        #82d4ff,
+        #a9e3ff
+    );
+
+    color: white;
+
+    width: 90%;
+
+    max-width: 600px;
+
+    /*
+       Height is responsive.
+       This prevents the card from
+       going outside the screen.
+    */
+
+    max-height: 82vh;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 30px #d8f5ff,
+        0 0 60px rgba(130, 212, 255, 0.7);
+
+    transition: 1s ease;
+
+    z-index: 7;
+
+    /*
+       Allow scrolling on small screens
+    */
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+}
+
+
+/* Card scrollbar */
+
+.card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+}
+
+
+.card.show {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    opacity: 1;
+
+}
+
+
+/* ============================= */
+/* MESSAGE */
+/* ============================= */
+
+.typing {
+
+    display: block;
+
+    font-size: clamp(15px, 3.5vw, 20px);
+
+    line-height: 1.8;
+
+    text-shadow:
+        1px 1px 3px rgba(0, 80, 130, 0.5);
+
+}
+
+
+/*
+   Each paragraph gets its own spacing.
+*/
+
+.message-line {
+
+    margin-bottom: 22px;
+
+}
+
+
+/*
+   Last paragraph doesn't need
+   extra bottom spacing.
+*/
+
+.message-line:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* ============================= */
+/* FLOATING TEXT */
+/* ============================= */
+
+.float {
+
+    position: absolute;
+
+    font-size: clamp(14px, 3.5vw, 20px);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        floatRandom 4.5s linear forwards,
+        textPop 0.5s ease;
+
+    text-shadow:
+        0 0 8px #8ed8ff,
+        1px 1px 4px rgba(0, 60, 100, 0.8);
+
+}
+
+
+/* Random floating movement */
+
+@keyframes floatRandom {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(var(--xMove), var(--yMove))
+            scale(1.3);
+
+    }
+
+}
+
+
+/* Small pop */
+
+@keyframes textPop {
+
+    0% {
+
+        transform: scale(0.4);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+.float-img {
+
+    position: absolute;
+
+    width: 105px;
+
+    border-radius: 15px;
+
+    border: 3px solid #a9e8ff;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        floatRandomImg 5s linear forwards,
+        imgGlow 1.5s ease-in-out infinite alternate;
+
+    box-shadow:
+        0 0 10px #8ed8ff;
+
+}
+
+
+@keyframes floatRandomImg {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            scale(1)
+            rotate(0deg);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(var(--xMove), var(--yMove))
+            scale(1.25)
+            rotate(var(--rotation));
+
+    }
+
+}
+
+
+@keyframes imgGlow {
+
+    0% {
+
+        box-shadow:
+            0 0 5px #8ed8ff;
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 20px #e5f8ff;
+
+    }
+
+}
+
+
+/* ============================= */
+/* GLITTER POP */
+/* ============================= */
+
+.glitter {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation:
+        glitter 1s linear forwards;
+
+    box-shadow:
+        0 0 8px white;
+
+}
+
+
+@keyframes glitter {
+
+    0% {
+
+        transform:
+            scale(0.3);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            scale(2.5)
+            translateY(-60px);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ============================= */
+/* MOBILE CARD */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        width: 92%;
+
+        max-height: 78vh;
+
+        padding: 22px 18px;
+
+        border-radius: 20px;
+
+    }
+
+    .typing {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+    }
+
+    .message-line {
+
+        margin-bottom: 18px;
+
+    }
+
+    .float-img {
+
+        width: 80px;
+
+    }
+
+}
+
+
+/* ============================= */
+/* VERY SMALL PHONES */
+/* ============================= */
+
+@media (max-width: 380px) {
+
+    .card {
+
+        width: 94%;
+
+        padding: 18px 15px;
+
+    }
+
+    .typing {
+
+        font-size: 14px;
+
+    }
+
+    .float-img {
+
+        width: 70px;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ============================= -->
+<!-- BACKGROUND VIDEO -->
+<!-- ============================= -->
+
+<video id="bg-video" autoplay loop muted>
+
+    <source src="her.mp4" type="video/mp4">
+
+</video>
+
+<div class="overlay"></div>
+
+
+<!-- ============================= -->
+<!-- AUDIO -->
+<!-- ============================= -->
+
+<audio id="bg-music">
+
+    <source src="birthday.mp3" type="audio/mp3">
+
+</audio>
+
+
+<!-- ============================= -->
+<!-- MAIN CONTENT -->
+<!-- ============================= -->
+
+<div class="content">
+
+    <h1>
+        Hii yayangggg and happyy belated birthdayyy!!! 💙
+    </h1>
+
+    <p class="subtitle">
+        ✨ made with love, questionable coding skills, and one very pretty girl in mind. ✨
+    </p>
+
+    <button id="main-btn">
+        Openn it sayangg and hopee you enjoyy it!! &lt;33 💙
+    </button>
+
+    <p style="margin-top:30px;">
+        Enjoyy yourr speciall dayy sayanggg &lt;33 🩵
+    </p>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- ENVELOPE -->
+<!-- ============================= -->
+
+<div class="envelope" id="envelope">
+    💌
+</div>
+
+
+<!-- ============================= -->
+<!-- BIRTHDAY CARD -->
+<!-- ============================= -->
+
+<div class="card" id="card">
+
+    <div id="wish" class="typing"></div>
+
+</div>
+
+
+<script>
+
+
+/* ============================= */
+/* ELEMENTS */
+/* ============================= */
+
+const btn =
+    document.getElementById("main-btn");
+
+const envelope =
+    document.getElementById("envelope");
+
+const card =
+    document.getElementById("card");
+
+const wish =
+    document.getElementById("wish");
+
+const music =
+    document.getElementById("bg-music");
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+const floatingImages = [
+
+    "sye.jpg",
+    "sye2.jpg",
+    "sye3.jpg",
+    "sye4.jpg",
+    "sye1.jpg"
+
+];
+
+
+/* ============================= */
+/* BIRTHDAY MESSAGE */
+/* ============================= */
+
+/*
+   Each section is separated so the
+   message appears part by part.
+
+   The typewriter will finish one
+   paragraph first, pause, then
+   continue to the next one.
+*/
+
+const messages = [
+
+    "🎉 Happy birthdayyy againn, sayanggg. 🎉",
+
+    "Sometimes I still think about how unexpected it was that you came into my life. Before you, I never really thought that one person could change so many little things about the way I see life. But somehow, you did.",
+
+    "Since you came into my life, there have been so many moments that I know I wouldn't have experienced without you. You became someone I could talk to, laugh with, share random things with, and somehow, you slowly became such an important part of my everyday life.",
+
+    "We've been through quite a lot together. We've had our good days, our stupid moments, our misunderstandings, and times when things weren't always easy. And I know I've made a lot of mistakes along the way. There were times when I could have done better, said things differently, or handled certain situations better. I'm not always the easiest person to deal with, and I know that.",
+
+    "But one thing that I'll always be grateful for is that even after seeing the not-so-good parts of me, you still chose to stay. You still chose me, over and over again. And honestly, I don't think I'll ever take that for granted.",
+
+    "I know I don't always say it, but I appreciate your patience, your effort, and the way you continue to be there even when I'm not at my best. You've given me chances to learn, to grow, and to become a better person. And I hope you know that I don't want to stay the same person who keeps making the same mistakes. I want to keep growing, especially for us.",
+
+    "And there's something else I really want you to remember. Please don't be so hard on yourself, especially when it comes to how you look. I wish you could see yourself the way I see you.",
+
+    "You're beautiful, sayang. Not just when you dress up or when you think you look good, but even on the days when you're insecure, tired, or don't feel confident at all.",
+
+    "You don't have to compare yourself to anyone else. You don't have to look a certain way to be beautiful. You already are. And I hope one day you can see the things I see in you too.",
+
+    "As you start another year of your life, I hope you get more reasons to be happy, more moments to be proud of yourself, and more opportunities to do the things you love. I hope the things you've been working towards slowly fall into place, and whenever life gets difficult, I hope you remember that you don't have to figure everything out alone.",
+
+    "And for us, I hope this isn't the end of our story but just another part of it. I want more random conversations, more stupid jokes, more places to go, more memories to look back on, more things for us to experience together, and hopefully many more birthdays to celebrate side by side.",
+
+    "Thank you for coming into my life. Thank you for staying, even when I wasn't perfect. And thank you for choosing me again and again.",
+
+    "Happy birthday again, sayang. I hope you know how much you mean to me. iloveyou. ❤️"
+
+];
+
+
+/* ============================= */
+/* BUTTON CLICK */
+/* ============================= */
+
+btn.addEventListener("click", () => {
+
+
+    /* ============================= */
+    /* MUSIC */
+    /* ============================= */
+
+    music.volume = 0.9;
+
+    music.play().catch(() => {});
+
+
+    /* ============================= */
+    /* DISABLE BUTTON */
+    /* ============================= */
+
+    btn.disabled = true;
+
+    btn.style.opacity = "0.4";
+
+
+    /* ============================= */
+    /* GLITTER POP */
+    /* ============================= */
+
+    for (let i = 0; i < 40; i++) {
+
+        let g =
+            document.createElement("div");
+
+        g.classList.add("glitter");
+
+
+        g.style.left =
+            (
+                window.innerWidth / 2 +
+                (Math.random() * 240 - 120)
+            ) + "px";
+
+
+        g.style.top =
+            (
+                window.innerHeight / 2 +
+                (Math.random() * 120 - 60)
+            ) + "px";
+
+
+        const glitterColors = [
+
+            "#ffffff",
+            "#dff7ff",
+            "#b8ecff",
+            "#8edcff",
+            "#c8f2ff"
+
+        ];
+
+
+        g.style.background =
+            glitterColors[
+                Math.floor(
+                    Math.random() *
+                    glitterColors.length
+                )
+            ];
+
+
+        document.body.appendChild(g);
+
+
+        setTimeout(
+            () => g.remove(),
+            1000
+        );
+
+    }
+
+
+    /* ============================= */
+    /* ENVELOPE ANIMATION */
+    /* ============================= */
+
+    envelope.classList.add("show");
+
+
+    setTimeout(
+        () =>
+            envelope.classList.add(
+                "pop-finish"
+            ),
+        300
+    );
+
+
+    /* ============================= */
+    /* OPEN ENVELOPE */
+    /* ============================= */
+
+    setTimeout(() => {
+
+        envelope.classList.add("open");
+
+        card.classList.add("show");
+
+
+        /*
+           Start the birthday message
+           after the card appears.
+        */
+
+        setTimeout(() => {
+
+            typeWriter();
+
+        }, 600);
+
+
+        /*
+           Start floating effects
+        */
+
+        setInterval(
+            createFloatingText,
+            1100
+        );
+
+
+        setInterval(
+            createFloatingImage,
+            2000
+        );
+
+
+    }, 900);
+
+});
+
+
+/* ============================= */
+/* TYPEWRITER MESSAGE */
+/* ============================= */
+
+let messageIndex = 0;
+
+let charIndex = 0;
+
+
+/*
+   This function types one paragraph
+   at a time.
+*/
+
+function typeWriter() {
+
+
+    /*
+       If all paragraphs are finished,
+       stop.
+    */
+
+    if (messageIndex >= messages.length) {
+
+        return;
+
+    }
+
+
+    /*
+       Create paragraph element
+       for current message.
+    */
+
+    if (charIndex === 0) {
+
+        const paragraph =
+            document.createElement("div");
+
+        paragraph.classList.add(
+            "message-line"
+        );
+
+        paragraph.id =
+            "message-" + messageIndex;
+
+        wish.appendChild(paragraph);
+
+    }
+
+
+    const currentParagraph =
+        document.getElementById(
+            "message-" + messageIndex
+        );
+
+
+    /*
+       Type one character.
+    */
+
+    if (
+        charIndex <
+        messages[messageIndex].length
+    ) {
+
+        currentParagraph.innerHTML +=
+            messages[messageIndex]
+                .charAt(charIndex);
+
+        charIndex++;
+
+
+        /*
+           Typing speed.
+        */
+
+        setTimeout(
+            typeWriter,
+            35
+        );
+
+
+    } else {
+
+
+        /*
+           Paragraph finished.
+           Move to next paragraph.
+        */
+
+        messageIndex++;
+
+        charIndex = 0;
+
+
+        /*
+           Pause between paragraphs.
+
+           This makes it feel more like
+           a real letter being revealed.
+        */
+
+        setTimeout(
+            typeWriter,
+            900
+        );
+
+    }
+
+}
+
+
+/* ============================= */
+/* FLOATING TEXT */
+/* ============================= */
+
+function createFloatingText() {
+
+
+    const words = [
+
+        "I love youu sayanggg 🩵",
+
+        "🎉🎉🎉🎉",
+
+        "may yourr dayyy be full of happinesss ✨",
+
+        "don't be insecure sayangg, you're beautiful just the way you are 🩵",
+
+        "you'll always be special to me 🤍",
+
+        "my bidadari duniaa birthdayyy 🌸",
+
+        "you deserve all the happinesss in the world 💙",
+
+        "stay prettyy sayanggg 🥹🩵"
+
+    ];
+
+
+    const el =
+        document.createElement("div");
+
+
+    el.classList.add("float");
+
+
+    el.innerText =
+        words[
+            Math.floor(
+                Math.random() *
+                words.length
+            )
+        ];
+
+
+    /*
+       Random horizontal position
+    */
+
+    el.style.left =
+        Math.random() * 80 + "%";
+
+
+    el.style.bottom =
+        "-30px";
+
+
+    /*
+       Random movement
+    */
+
+    el.style.setProperty(
+
+        "--xMove",
+
+        (
+            Math.random() * 300 -
+            150
+        ) + "px"
+
+    );
+
+
+    el.style.setProperty(
+
+        "--yMove",
+
+        (
+            -300 -
+            Math.random() * 200
+        ) + "px"
+
+    );
+
+
+    document.body.appendChild(el);
+
+
+    setTimeout(
+        () => el.remove(),
+        5000
+    );
+
+}
+
+
+/* ============================= */
+/* FLOATING IMAGES */
+/* ============================= */
+
+function createFloatingImage() {
+
+
+    const img =
+        document.createElement("img");
+
+
+    /*
+       Randomly choose one of
+       the 5 pictures.
+    */
+
+    img.src =
+        floatingImages[
+            Math.floor(
+                Math.random() *
+                floatingImages.length
+            )
+        ];
+
+
+    img.classList.add(
+        "float-img"
+    );
+
+
+    /*
+       Random starting position.
+    */
+
+    img.style.left =
+        Math.random() * 80 + "%";
+
+
+    img.style.bottom =
+        "-60px";
+
+
+    /*
+       Random movement.
+    */
+
+    img.style.setProperty(
+
+        "--xMove",
+
+        (
+            Math.random() * 300 -
+            150
+        ) + "px"
+
+    );
+
+
+    img.style.setProperty(
+
+        "--yMove",
+
+        (
+            -350 -
+            Math.random() * 220
+        ) + "px"
+
+    );
+
+
+    /*
+       Random rotation
+       for a natural effect.
+    */
+
+    img.style.setProperty(
+
+        "--rotation",
+
+        (
+            Math.random() * 30 -
+            15
+        ) + "deg"
+
+    );
+
+
+    document.body.appendChild(img);
+
+
+    setTimeout(
+        () => img.remove(),
+        5500
+    );
+
+}
+
+</script>
+
+</body>
+</html>
